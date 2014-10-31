@@ -61,7 +61,7 @@
 		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX</td>
 	</tr>
 	<tr>
-		<td><b>[requerido]</b><br>se "ajax" e data-bootstrap for "true"</td>
+		<td><b>[requerido]</b><br>se "ajax" e data-bootstrap for "false"</td>
 		<td>data-elvalidate</td>
 		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX</td>

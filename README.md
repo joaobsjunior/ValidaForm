@@ -17,7 +17,7 @@
 
 <p>Na tag <code>&lt;form&gt;</code>, você deve informar os seguintes atribulos:</p>
 
-<table>
+<table width="90%" align="center">
 	<tr>
 		<th>Atribulos</th>
 		<th>Valor</th>

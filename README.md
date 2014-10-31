@@ -24,7 +24,8 @@
 		<th>Descrição</th>
 	</tr>
 	<tr>
-		<td>method</td>
+		<td>method `requerido`</td>
 		<td>POST/GET</td>
+		<td></td>
 	</tr>
 </table>

@@ -22,7 +22,7 @@
 		<th>Requerido</th>
 		<th>Atribulos</th>
 		<th>Valor</th>
-		<th width="300px">Descrição</th>
+		<th>Descrição</th>
 	</tr>
 	<tr>
 		<td><b>[requerido]</b></td>

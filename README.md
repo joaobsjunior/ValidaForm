@@ -17,15 +17,25 @@
 
 <p>Na tag <code>&lt;form&gt;</code>, você deve informar os seguintes atribulos:</p>
 
-<table width="90%" align="center">
+<table>
 	<tr>
 		<th>Atribulos</th>
 		<th>Valor</th>
 		<th>Descrição</th>
 	</tr>
 	<tr>
-		<td>method <span>requerido</span></td>
+		<td>method <b>[requerido]</b></td>
 		<td>POST/GET</td>
-		<td></td>
+		<td>Este é o tipo método utilizado para enviar as informações do formulário</td>
+	</tr>
+	<tr>
+		<td>class</td>
+		<td>ajax</td>
+		<td>Se quiser enviar o formulário utilizando via AJAX</td>
+	</tr>
+	<tr>
+		<td>data-elsend</td>
+		<td>&lt;seletor de elemento&gt; <b>[requerido se "ajax"]</b></td>
+		<td>Utilize o seletor do elemento <code>#id_div .class</code> para informar qual o elemento que irá mostrar quando o formulário estiver sendo enviado via AJAX</td>
 	</tr>
 </table>

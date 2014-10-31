@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Exemplo ValidaForm</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- JQUERY -->
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<!-- BOOTSTRAP CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+	<main class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<form method="POST" class="ajax" data-elsend="" data-bootstrap="false" role="form">
+					<div class="form-group">
+						<label for="e-mail">E-mail</label>
+						<input type="email" class="form-control" id="e-mail" placeholder="E-mail" required>
+					</div>
+					<div class="form-group">
+						<label for="senha">Senha</label>
+						<input type="password" class="form-control password" id="senha" placeholder="Senha" required>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputFile">File input</label>
+						<input type="file" id="exampleInputFile">
+						<p class="help-block">Example block-level help text here.</p>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox"> Check me out
+						</label>
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+			<div class="col-md-6">
+				
+			</div>
+		</div>
+	</main>
+</body>
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<!-- VALIDAFORM JAVASCRIPT -->
+<script type="text/javascript" src="js/validaform.js"></script>
+</html>

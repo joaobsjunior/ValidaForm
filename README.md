@@ -11,7 +11,7 @@
 &lt;script type="text/javascript" src="js/validaform.js"&gt;&lt;/script&gt;
 </pre>
 
-<em>Não é necessário realizar nenhuma chamada do script</em>
+<em>Não é necessário realizar nenhuma chamada para o script funcionar</em>
 
 <h3>Como utilizar</h3>
 
@@ -24,7 +24,7 @@
 		<th>Descrição</th>
 	</tr>
 	<tr>
-		<td>method `requerido`</td>
+		<td>method <mark>requerido</mark></td>
 		<td>POST/GET</td>
 		<td></td>
 	</tr>

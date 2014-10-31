@@ -15,7 +15,7 @@
 
 <h3>Como utilizar</h3>
 
-<p>Na tag <code>&lt;form&gt;</code>, você deve informar os seguintes atribulos:</p>
+<h4>Na tag <code>&lt;form&gt;</code>, você deve informar os seguintes atribulos:</h4>
 
 <table>
 	<tr>

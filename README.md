@@ -10,3 +10,5 @@
 &lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="js/validaform.js"&gt;&lt;/script&gt;
 </pre>
+
+<em>Não é necessário realizar nenhuma chamada do script</em>

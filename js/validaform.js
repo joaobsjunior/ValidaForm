@@ -32,6 +32,7 @@ FORM
 - data-elsend (somente para form com class "ajax")
 - data-elsuccess (somente para from com class "ajax")
 - data-elvalidate (somente para form_bootstrap "true" e from com class "ajax")
+- data-bootstrap (defaul é "true", deve setar "false" para formulários que não são bootstrap)
 
 INPUT
 - data-msgvalidate
@@ -57,18 +58,18 @@ SELECT PERSONALIZADO
 
 jQuery.extend({
     form_bootstrap: function() {
-        return true; /*TRUE para formulários bootstrap*/
+        return true;
     }
-})
+});
 
 
 jQuery.fn.serializeObject = function() {
     "use strict";
     var a = {},
-    b = function(b, c) {
-        var d = a[c.name];
-        "undefined" != typeof d && d !== null ? $.isArray(d) ? d.push(c.value) : a[c.name] = [d, c.value] : a[c.name] = c.value
-    };
+        b = function(b, c) {
+            var d = a[c.name];
+            "undefined" != typeof d && d !== null ? $.isArray(d) ? d.push(c.value) : a[c.name] = [d, c.value] : a[c.name] = c.value
+        };
     return jQuery.each(this.serializeArray(), b), a
 };
 
@@ -232,11 +233,11 @@ campo.change(function() {
 jQuery('input').on('keydown', function(event) {
     var tecla = String.fromCharCode(event.keyCode).toLowerCase();
     console.log(event);
-    if ( (event.ctrlKey || event.metaKey) && (tecla == "c" || tecla == "v")) {
+    if ((event.ctrlKey || event.metaKey) && (tecla == "c" || tecla == "v")) {
         window.event ? event.returnValue = false : event.preventDefault();
         return false
     }
-}).on('contextmenu', function(){
+}).on('contextmenu', function() {
     return false;
 });
 
@@ -244,6 +245,11 @@ jQuery('form').attr('novalidate', 'novalidate');
 jQuery('form').submit(function(ev) {
     ev.preventDefault();
     var _self = jQuery(this);
+    jQuery.extend({
+        form_bootstrap: function() {
+            return Boolean(_self.data('bootstrap'));
+        }
+    });
     var aprovado = true;
     jQuery(_self.data('elsuccess')).hide();
     if (!jQuery.form_bootstrap()) {
@@ -331,8 +337,8 @@ jQuery('form').submit(function(ev) {
                 }
                 if (atual.attr('type') == 'password' || atual.attr('type') == 'email') {
                     var total = _self.find('[name=' + atual.attr('name') + ']').length,
-                    senhas = [],
-                    senha;
+                        senhas = [],
+                        senha;
                     if (total > 1) {
                         for (var i = 0; i < total; i++) {
                             senha = _self.find('[name=' + atual.attr('name') + ']').eq(i).val();
@@ -352,44 +358,44 @@ jQuery('form').submit(function(ev) {
         }
     })
 
-if (aprovado && _self.hasClass('ajax')) {
-    jQuery('.loading').fadeIn('slow');
-    var url = _self.attr('action'),
-    params = _self.serializeObject(),
-    sendmail = jQuery(_self.data('elsend')),
-    msgsuccess = jQuery(_self.data('elsuccess'));
-    jQuery.ajax({
-        type: _self.attr('method'),
-        url: url,
-        async: true,
-        cache: false,
-        data: params,
-        beforeSend: function() {
-            if (sendmail) {
-                sendmail.fadeIn('slow');
-            }
-        },
-        success: function(data) {
-            if (msgsuccess) {
-                msgsuccess.html(data);
-                msgsuccess.fadeIn('slow');
-                setTimeout(function() {
-                    msgsuccess.fadeOut('slow');
-                }, 10000);
-            }
-        },
-        complete: function() {
-            if (sendmail) {
-                sendmail.fadeOut('slow');
-            }
-        },
-        error: function(xhr, textStatus, errorThrown) {
+    if (aprovado && _self.hasClass('ajax')) {
+        jQuery('.loading').fadeIn('slow');
+        var url = _self.attr('action'),
+            params = _self.serializeObject(),
+            sendmail = jQuery(_self.data('elsend')),
+            msgsuccess = jQuery(_self.data('elsuccess'));
+        jQuery.ajax({
+            type: _self.attr('method'),
+            url: url,
+            async: true,
+            cache: false,
+            data: params,
+            beforeSend: function() {
+                if (sendmail) {
+                    sendmail.fadeIn('slow');
+                }
+            },
+            success: function(data) {
+                if (msgsuccess) {
+                    msgsuccess.html(data);
+                    msgsuccess.fadeIn('slow');
+                    setTimeout(function() {
+                        msgsuccess.fadeOut('slow');
+                    }, 10000);
+                }
+            },
+            complete: function() {
+                if (sendmail) {
+                    sendmail.fadeOut('slow');
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
 
-        }
-    });
-} else if (aprovado) {
-    _self.unbind('submit').submit();
-}
+            }
+        });
+    } else if (aprovado) {
+        _self.unbind('submit').submit();
+    }
 
 });
 
@@ -409,35 +415,35 @@ function valida_cpf(cpf) {
             digitos_iguais = 0;
             break;
         }
-        if (!digitos_iguais) {
-            numeros = cpf.substring(0, 9);
-            digitos = cpf.substring(9);
-            soma = 0;
-            for (i = 10; i > 1; i--)
-                soma += numeros.charAt(10 - i) * i;
-            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-            if (resultado != digitos.charAt(0))
-                return false;
-            numeros = cpf.substring(0, 10);
-            soma = 0;
-            for (i = 11; i > 1; i--)
-                soma += numeros.charAt(11 - i) * i;
-            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-            if (resultado != digitos.charAt(1))
-                return false;
-            return true;
-        } else
-        return false;
-    }
-
-    function valida_cnpj(cnpj) {
-        cnpj = so_numeros(cnpj);
-        cnpj = cnpj.replace(/[^\d]+/g, '');
-
-        if (cnpj == '') return false;
-
-        if (cnpj.length != 14)
+    if (!digitos_iguais) {
+        numeros = cpf.substring(0, 9);
+        digitos = cpf.substring(9);
+        soma = 0;
+        for (i = 10; i > 1; i--)
+            soma += numeros.charAt(10 - i) * i;
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(0))
             return false;
+        numeros = cpf.substring(0, 10);
+        soma = 0;
+        for (i = 11; i > 1; i--)
+            soma += numeros.charAt(11 - i) * i;
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(1))
+            return false;
+        return true;
+    } else
+        return false;
+}
+
+function valida_cnpj(cnpj) {
+    cnpj = so_numeros(cnpj);
+    cnpj = cnpj.replace(/[^\d]+/g, '');
+
+    if (cnpj == '') return false;
+
+    if (cnpj.length != 14)
+        return false;
 
     // Elimina CNPJs invalidos conhecidos
     if (cnpj == "00000000000000" ||
@@ -486,7 +492,7 @@ function valida_cpf(cpf) {
 
 function anima_validacao(campo_atual, msg) {
     var campo_duracao = 50,
-    msgValidate, campo_prev;
+        msgValidate, campo_prev;
     if (jQuery.form_bootstrap()) {
         msgValidate = campo_atual.parent().find('.help-block');
         campo_atual.parent().addClass('has-error');

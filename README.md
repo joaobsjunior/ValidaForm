@@ -4,7 +4,7 @@
 <p>O validaform é um script que foi feito para facilitar a vida do Front-End e Back-End, pois possui suporte à <a href="http://getbootstrap.com/" target="_blank">bootstrap</a>, AJAX, dentre outras.</p>
 
 <h3>Instalação</h3>
-<p>O <code>validaform.js</code> deve ficar no final do <code>&lt;body&gt;</code> e após o <a href="http://jquery.com/" target="_blank">jQuery</a></p>
+<p>O <code>validaform.js</code> deve ficar no final do <code>&lt;body&gt;</code> e após o <a href="http://jquery.com/" target="_blank">jQuery</a>:</p>
 
 <pre>
 &lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"&gt;&lt;/script&gt;
@@ -12,3 +12,19 @@
 </pre>
 
 <em>Não é necessário realizar nenhuma chamada do script</em>
+
+<h3>Como utilizar</h3>
+
+<p>Na tag <code>&lt;form&gt;</code>, você deve informar os seguintes atribulos:</p>
+
+<table>
+	<tr>
+		<th>Atribulos</th>
+		<th>Valor</th>
+		<th>Descrição</th>
+	</tr>
+	<tr>
+		<td>method</td>
+		<td>POST/GET</td>
+	</tr>
+</table>

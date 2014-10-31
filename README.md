@@ -34,8 +34,8 @@
 		<td>Se quiser enviar o formulário utilizando via AJAX</td>
 	</tr>
 	<tr>
-		<td>data-elsend</td>
-		<td>&lt;seletor de elemento&gt; <b>[requerido se "ajax"]</b></td>
+		<td>data-elsend  <b>[requerido se "ajax"]</b></td>
+		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento <code>#id_div .class</code> para informar qual o elemento que irá mostrar quando o formulário estiver sendo enviado via AJAX</td>
 	</tr>
 </table>

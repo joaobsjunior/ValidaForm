@@ -339,7 +339,7 @@ function sha1(r) {
                                 mascara(this, so_texto);
                             });
 
-                            jQuery('input').on('keydown', function(event) {
+                            jQuery('input:not(.no-blocked)').on('keydown', function(event) {
                                 var tecla = String.fromCharCode(event.keyCode).toLowerCase();
                                 if ((event.ctrlKey || event.metaKey) && (tecla == "c" || tecla == "v")) {
                                     window.event ? event.returnValue = false : event.preventDefault();

@@ -4,4 +4,4 @@
 <p>O validaform é um script que foi feito para facilitar a vida do Front-End e Back-End, pois possui suporte à <a href="http://www.getbootstrap.com">bootstrap</a>, AJAX, dentre outras.</p>
 
 <h3>Instalação</h3>
-<p>O <code>validaform.js</code> deve ficar no final do <code><body></code></p>
+<p>O <code>validaform.js</code> deve ficar no final do <code>&lt;body&gt;</code></p>

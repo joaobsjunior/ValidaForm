@@ -7,6 +7,6 @@
 <p>O <code>validaform.js</code> deve ficar no final do <code>&lt;body&gt;</code> e após o <a href="http://jquery.com/" target="_blank">jQuery</a></p>
 
 <pre>
-	&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"&gt;&lt;/script&gt;
-	&lt;script type="text/javascript" src="js/validaform.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/validaform.js"&gt;&lt;/script&gt;
 </pre>

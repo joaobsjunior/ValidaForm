@@ -36,6 +36,6 @@
 	<tr>
 		<td>data-elsend  <b>[requerido se "ajax"]</b></td>
 		<td>&lt;seletor de elemento&gt;</td>
-		<td>Utilize o seletor do elemento <code>#id_div .class</code> para informar qual o elemento que irá mostrar quando o formulário estiver sendo enviado via AJAX</td>
+		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar quando o formulário estiver sendo enviado via AJAX</td>
 	</tr>
 </table>

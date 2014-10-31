@@ -43,7 +43,7 @@
 		<td>Se o formulário tiver campos de senha, informar qual criptografia utilizada</td>
 	</tr>
 	<tr>
-		<td><b>[requerido]</b> se "ajax"</td>
+		<td><b>[requerido]</b><br>se "ajax"</td>
 		<td>data-elsend</td>
 		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar quando o formulário estiver sendo enviado via AJAX</td>
@@ -55,13 +55,13 @@
 		<td>Se o formulário for no formato bootstrap setar como "true" senão "false"</td>
 	</tr>
 	<tr>
-		<td><b>[requerido]</b> se "ajax"</td>
+		<td><b>[requerido]</b><br>se "ajax"</td>
 		<td>data-elsuccess</td>
 		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX</td>
 	</tr>
 	<tr>
-		<td><b>[requerido]</b> se "ajax" e data-bootstrap for "true"</td>
+		<td><b>[requerido]</b><br>se "ajax" e data-bootstrap for "true"</td>
 		<td>data-elvalidate</td>
 		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX</td>

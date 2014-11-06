@@ -7,55 +7,6 @@
  * Licensed under the MIT license
  */
 
-/*
-================== ESTRUTURA HTML BOOTSTRAP ==================
-
-
-<div class="row">
-<div class="form-group">
-<div class="col-md-6">
-<input type="text" name="nome1"></input>
-</div>
-<div class="col-md-6">
-<input type="text" name="nome1"></input>
-</div>
-</div>
-</div>
-
-
-============== ATRIBUTOS DO FORM PARA VALIDAÇÃO ==============
-
-
-FORM
-- method (informar o método da requisição do form)
-- class (adiconar a class "ajax" se quiser enviar a requisição via ajax)
-- data-elsend (somente para form com class "ajax")
-- data-elsuccess (somente para from com class "ajax")
-- data-elvalidate (somente para form_bootstrap "true" e from com class "ajax")
-- data-bootstrap (defaul é "true", deve setar "false" para formulários que não são bootstrap)
-
-INPUT
-- data-msgvalidate
-- data-msgequals (somente para validação de campos idênticos de senha ou e-mail, sendo adiconado apenas no último campo)
-- data-msgrequired
-- data-minlength (não sendo para telefone, cpf, cnpj e data)
-- required
-
-INPUT-FILE
-- data-extencoes
-- data-maxsize
-
-
-====================== INFORMAÇÕES ÚTEIS ======================
-
-
-SELECT PERSONALIZADO
-- funciona com o plugin bootstrap-select - http://silviomoreto.github.io/bootstrap-select/
-
-
-===============================================================
-*/
-
 function utf8_encode(argString) {
 
     if (argString === null || typeof argString === 'undefined') {

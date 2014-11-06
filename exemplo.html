@@ -15,39 +15,57 @@
 	<main class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form method="POST" action="http://jjunior.net.br/portfolio/pluginsjquery/validaform/" class="ajax" data-elsend="#send-form" data-elsuccess="#success-form" data-bootstrap="true" role="form">
-					<div class="form-group">
-						<label for="e-mail">E-mail</label>
-						<input type="email" class="form-control" id="e-mail" placeholder="E-mail" required>
+				<form method="POST" action="http://jjunior.net.br/portfolio/pluginsjquery/validaform/index.php" class="ajax" data-elsend="#send-form" data-elsuccess="#success-form" data-bootstrap="true" role="form">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="e-mail">E-mail</label>
+							<input type="email" name="email" class="form-control" id="e-mail" placeholder="E-mail" required />
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="senha">Senha</label>
-						<input type="password" class="form-control password" id="senha" placeholder="Senha" required>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="e-mail2">Confirmação do E-mail</label>
+							<input type="email" name="email" class="form-control" id="e-mail2" placeholder="E-mail" data-msgequals="Os e-mails devem ser iguais" required />
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="exampleInputFile">Upload de arquivo</label>
-						<input type="text" name="filetxt">
-						<input type="file" name="file" id="exampleInputFile" data-extencoes="[.jpg, .png]" required>
-						<p class="help-block">Permitido</p>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="senha">Senha</label>
+							<input type="password" name="senha" class="form-control password" data-cript="sha1, md5" id="senha" placeholder="Senha" />
+						</div>
 					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox"> Check me out
-						</label>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="senha">Confirmação de Senha</label>
+							<input type="password" name="senha" class="form-control password" data-cript="sha1, md5" id="senha" placeholder="Senha" />
+						</div>
 					</div>
-					<button type="submit" class="btn btn-default">Enviar</button>
-					<div id="send-form"></div>
-					<div id="success-form"></div>
-				</form>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="exampleInputFile">Upload de arquivo</label>
+							<input type="text" name="filetxt">
+							<input type="file" name="file" id="exampleInputFile" data-extencoes=".jpg, .png" data-maxsize="1" data-typesize="MB" data-msgrequired="Você deve anexar um arquivo" data-msgvalidate="Você deve anexar um arquivo no formato .jpg, .png" required />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox"> Check me out
+							</label>
+						</div>
+						<button type="submit" class="btn btn-default">Enviar</button>
+						<div id="send-form"></div>
+						<div id="success-form"></div>
+					</form>
+				</div>
+				<div class="col-md-6">
+
+				</div>
 			</div>
-			<div class="col-md-6">
-				
-			</div>
-		</div>
-	</main>
-</body>
-<!-- BOOTSTRAP JAVASCRIPT -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<!-- VALIDAFORM JAVASCRIPT -->
-<script type="text/javascript" src="js/validaform.js"></script>
-</html>
+		</main>
+	</body>
+	<!-- BOOTSTRAP JAVASCRIPT -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<!-- VALIDAFORM JAVASCRIPT -->
+	<script type="text/javascript" src="js/validaform.js"></script>
+	</html>

@@ -26,49 +26,43 @@
 	</tr>
 	<tr>
 		<td><b>[requerido]</b></td>
-		<td>method</td>
+		<td><code>method</code></td>
 		<td>POST/GET</td>
 		<td>Este é o tipo método utilizado para enviar as informações do formulário</td>
 	</tr>
 	<tr>
 		<td>opcional</td>
-		<td>class</td>
+		<td><code>class</code></td>
 		<td>ajax</td>
 		<td>Se quiser enviar o formulário utilizando via AJAX</td>
 	</tr>
 	<tr>
-		<td>opcional</td>
-		<td>class</td>
-		<td>md5 | sha1 | md5 e sha1</td>
-		<td>Se o formulário tiver campos de senha, informar qual criptografia utilizada</td>
-	</tr>
-	<tr>
 		<td><b>[requerido]</b><br>se "ajax"</td>
-		<td>data-elsend</td>
+		<td><code>data-elsend</code></td>
 		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar quando o formulário estiver sendo enviado via AJAX</td>
 	</tr>
 	<tr>
 		<td><b>[requerido]</b></td>
-		<td>data-bootstrap</td>
+		<td><code>data-bootstrap</code></td>
 		<td>&lt;boolean&gt;</td>
 		<td>Se o formulário for no formato bootstrap setar como "true" senão "false"</td>
 	</tr>
 	<tr>
 		<td><b>[requerido]</b><br>se "ajax"</td>
-		<td>data-elsuccess</td>
+		<td><code>data-elsuccess</code></td>
 		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX</td>
 	</tr>
 	<tr>
 		<td><b>[requerido]</b><br>se "ajax" e data-bootstrap for "false"</td>
-		<td>data-elvalidate</td>
+		<td><code>data-elvalidate</code></td>
 		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX</td>
 	</tr>
 </table>
 
-<h5>Na tag <code>&lt;input | select | textarea&gt;</code>, você deve informar os seguintes atribulos:</h5>
+<h5>Na tag <code>&lt;input | select | textarea&gt;</code>, você deve informar os seguintes atributos:</h5>
 
 <table>
 	<tr>
@@ -77,48 +71,65 @@
 		<td>Descrição</td>
 	</tr>
 	<tr>
-		<td>type</td>
+		<td><code>type</code></td>
 		<td>&lt;email | text | password | file&gt;</td>
 		<td>Tipo do campo</td>
 	</tr>
 	<tr>
-		<td>class</td>
+		<td><code>class</code></td>
 		<td>&lt;timer (hora) | phone (telefone) | cnpj | cpf | data | cep | so-numero | so-texto&gt;</td>
 		<td>Classes CSS que serão tratadas pelo script, gerando máscaras, retringindo caracteres e validado os dados</td>
 	</tr>
 	<tr>
-		<td>required</td>
+		<td><code>required</code></td>
 		<td>&lt;atributo html5&gt;</td>
 		<td>Setando o campo como obrigatório</td>
 	</tr>
 	<tr>
-		<td>data-msgrequired</td>
+		<td><code>data-msgrequired</code></td>
 		<td>&lt;string&gt;</td>
 		<td>Texto que será apresentado caso o input seja obrigatório e não estiver preenchido</td>
 	</tr>
 	<tr>
-		<td>data-msgvalidate</td>
+		<td><code>data-msgvalidate</code></td>
 		<td>&lt;string&gt;</td>
 		<td>Texto que será apresentado caso o input seja preenchido mas não corresponda as prerequisitos do tipo informado</td>
 	</tr>
 	<tr>
-		<td>maxlength</td>
+		<td><code>maxlength</code></td>
 		<td>&lt;atributo html5&gt;</td>
 		<td>Determinando o tamanho máximo do campo.</td>
 	</tr>
 	<tr>
-		<td>data-minlength</td>
+		<td><code>data-minlength</code></td>
 		<td>&lt;inteiro&gt;</td>
 		<td>Determinando o mínimo de caracteres do campo.</td>
 	</tr>
 	<tr>
-		<td>data-msgequals</td>
+		<td><code>data-msgequals</code></td>
 		<td>&lt;string&gt;</td>
-		<td>Texto que será apresentado caso os inputs com o mesmo valor do atribulo <code>name</code> não estejam iguais. Muito utilizado para o campos de confirmação de e-mail</td>
+		<td>Texto que será apresentado caso os inputs do tipo <code>email | password</code> com o mesmo <code>name</code> não estejam com valores iguais.</td>
 	</tr>
 	<tr>
-		<td>data-extencoes</td>
+		<td><code>data-cript</code></td>
+		<td>&lt;array&gt;</td>
+		<td>Relação das criptografias (md5 e sha1) utilizadas para o campo do tipo <code>password</code> na forma decrescente. Exemplo: <code>data-cript="md5, sha1, sha1"</code>. Executará assim: <code>sha1(sha1(md5("valor")))</code></td>
+	</tr>
+	<tr>
+		<td><code>data-extencoes</code></td>
+		<td>&lt;array&gt;</td>
+		<td>Relação das extenções permitidas para o arquivo. Exemplp: <code>data-extencoes=".jpg , .png , .pdf"</code></td>
+	</tr>
+	<tr>
+		<td><code>data-typesize</code> <strong>opcional</strong></td>
 		<td>&lt;string&gt;</td>
-		<td>Relação das extenções permitidas para o arquivo</td>
+		<td>Tipo do tamanho do arquivo, podendo ser <code>MB ou KB</code>. Exemplo: <code>data-typesize="MB"</code>. Default: <code>KB</code></td>
+	</tr>
+	<tr>
+		<td><code>data-maxsize</code> <strong>opcional</strong></td>
+		<td>&lt;string&gt;</td>
+		<td>Tamanho máximo do arquivo carregado. O tamanho é baseado no <code>data-typesize</code></td>
 	</tr>
 </table>
+
+<em>Para cada input do tipo <code>file</code>, deverá ser criado no formulário um input do tipo text onde mostrará o endereço do arquivo, com o mesmo attributo <code>name</code>, somente acrescido de "txt".</em> <br><strong>Exemplo:</strong><br> <pre>&lt;input type="file" name="arquivo" &gt; <br>&lt;input type="text" name="arquivotxt" &gt;</pre>

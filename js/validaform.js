@@ -55,468 +55,686 @@ SELECT PERSONALIZADO
 
 ===============================================================
 */
-var el_teste;
-function md5(n) {
-    var r, t, u, e, o, f, c, i, a, h, v = function(n, r) {
-        return n << r | n >>> 32 - r
-    },
-    g = function(n, r) {
-        var t, u, e, o, f;
-        return e = 2147483648 & n, o = 2147483648 & r, t = 1073741824 & n, u = 1073741824 & r, f = (1073741823 & n) + (1073741823 & r), t & u ? 2147483648 ^ f ^ e ^ o : t | u ? 1073741824 & f ? 3221225472 ^ f ^ e ^ o : 1073741824 ^ f ^ e ^ o : f ^ e ^ o
-    },
-    s = function(n, r, t) {
-        return n & r | ~n & t
-    },
-    d = function(n, r, t) {
-        return n & t | r & ~t
-    },
-    l = function(n, r, t) {
-        return n ^ r ^ t
-    },
-    w = function(n, r, t) {
-        return r ^ (n | ~t)
-    },
-    A = function(n, r, t, u, e, o, f) {
-        return n = g(n, g(g(s(r, t, u), e), f)), g(v(n, o), r)
-    },
-    C = function(n, r, t, u, e, o, f) {
-        return n = g(n, g(g(d(r, t, u), e), f)), g(v(n, o), r)
-    },
-    b = function(n, r, t, u, e, o, f) {
-        return n = g(n, g(g(l(r, t, u), e), f)), g(v(n, o), r)
-    },
-    m = function(n, r, t, u, e, o, f) {
-        return n = g(n, g(g(w(r, t, u), e), f)), g(v(n, o), r)
-    },
-    y = function(n) {
-        for (var r, t = n.length, u = t + 8, e = (u - u % 64) / 64, o = 16 * (e + 1), f = new Array(o - 1), c = 0, i = 0; t > i;) r = (i - i % 4) / 4, c = i % 4 * 8, f[r] = f[r] | n.charCodeAt(i) << c, i++;
-            return r = (i - i % 4) / 4, c = i % 4 * 8, f[r] = f[r] | 128 << c, f[o - 2] = t << 3, f[o - 1] = t >>> 29, f
-    },
-    L = function(n) {
-        var r, t, u = "",
-        e = "";
-        for (t = 0; 3 >= t; t++) r = n >>> 8 * t & 255, e = "0" + r.toString(16), u += e.substr(e.length - 2, 2);
-            return u
-    },
-    S = [],
-    _ = 7,
-    j = 12,
-    k = 17,
-    p = 22,
-    q = 5,
-    x = 9,
-    z = 14,
-    B = 20,
-    D = 4,
-    E = 11,
-    F = 16,
-    G = 23,
-    H = 6,
-    I = 10,
-    J = 15,
-    K = 21;
-    for (n = this.utf8_encode(n), S = y(n), c = 1732584193, i = 4023233417, a = 2562383102, h = 271733878, r = S.length, t = 0; r > t; t += 16) u = c, e = i, o = a, f = h, c = A(c, i, a, h, S[t + 0], _, 3614090360), h = A(h, c, i, a, S[t + 1], j, 3905402710), a = A(a, h, c, i, S[t + 2], k, 606105819), i = A(i, a, h, c, S[t + 3], p, 3250441966), c = A(c, i, a, h, S[t + 4], _, 4118548399), h = A(h, c, i, a, S[t + 5], j, 1200080426), a = A(a, h, c, i, S[t + 6], k, 2821735955), i = A(i, a, h, c, S[t + 7], p, 4249261313), c = A(c, i, a, h, S[t + 8], _, 1770035416), h = A(h, c, i, a, S[t + 9], j, 2336552879), a = A(a, h, c, i, S[t + 10], k, 4294925233), i = A(i, a, h, c, S[t + 11], p, 2304563134), c = A(c, i, a, h, S[t + 12], _, 1804603682), h = A(h, c, i, a, S[t + 13], j, 4254626195), a = A(a, h, c, i, S[t + 14], k, 2792965006), i = A(i, a, h, c, S[t + 15], p, 1236535329), c = C(c, i, a, h, S[t + 1], q, 4129170786), h = C(h, c, i, a, S[t + 6], x, 3225465664), a = C(a, h, c, i, S[t + 11], z, 643717713), i = C(i, a, h, c, S[t + 0], B, 3921069994), c = C(c, i, a, h, S[t + 5], q, 3593408605), h = C(h, c, i, a, S[t + 10], x, 38016083), a = C(a, h, c, i, S[t + 15], z, 3634488961), i = C(i, a, h, c, S[t + 4], B, 3889429448), c = C(c, i, a, h, S[t + 9], q, 568446438), h = C(h, c, i, a, S[t + 14], x, 3275163606), a = C(a, h, c, i, S[t + 3], z, 4107603335), i = C(i, a, h, c, S[t + 8], B, 1163531501), c = C(c, i, a, h, S[t + 13], q, 2850285829), h = C(h, c, i, a, S[t + 2], x, 4243563512), a = C(a, h, c, i, S[t + 7], z, 1735328473), i = C(i, a, h, c, S[t + 12], B, 2368359562), c = b(c, i, a, h, S[t + 5], D, 4294588738), h = b(h, c, i, a, S[t + 8], E, 2272392833), a = b(a, h, c, i, S[t + 11], F, 1839030562), i = b(i, a, h, c, S[t + 14], G, 4259657740), c = b(c, i, a, h, S[t + 1], D, 2763975236), h = b(h, c, i, a, S[t + 4], E, 1272893353), a = b(a, h, c, i, S[t + 7], F, 4139469664), i = b(i, a, h, c, S[t + 10], G, 3200236656), c = b(c, i, a, h, S[t + 13], D, 681279174), h = b(h, c, i, a, S[t + 0], E, 3936430074), a = b(a, h, c, i, S[t + 3], F, 3572445317), i = b(i, a, h, c, S[t + 6], G, 76029189), c = b(c, i, a, h, S[t + 9], D, 3654602809), h = b(h, c, i, a, S[t + 12], E, 3873151461), a = b(a, h, c, i, S[t + 15], F, 530742520), i = b(i, a, h, c, S[t + 2], G, 3299628645), c = m(c, i, a, h, S[t + 0], H, 4096336452), h = m(h, c, i, a, S[t + 7], I, 1126891415), a = m(a, h, c, i, S[t + 14], J, 2878612391), i = m(i, a, h, c, S[t + 5], K, 4237533241), c = m(c, i, a, h, S[t + 12], H, 1700485571), h = m(h, c, i, a, S[t + 3], I, 2399980690), a = m(a, h, c, i, S[t + 10], J, 4293915773), i = m(i, a, h, c, S[t + 1], K, 2240044497), c = m(c, i, a, h, S[t + 8], H, 1873313359), h = m(h, c, i, a, S[t + 15], I, 4264355552), a = m(a, h, c, i, S[t + 6], J, 2734768916), i = m(i, a, h, c, S[t + 13], K, 1309151649), c = m(c, i, a, h, S[t + 4], H, 4149444226), h = m(h, c, i, a, S[t + 11], I, 3174756917), a = m(a, h, c, i, S[t + 2], J, 718787259), i = m(i, a, h, c, S[t + 9], K, 3951481745), c = g(c, u), i = g(i, e), a = g(a, o), h = g(h, f);
-        var M = L(c) + L(i) + L(a) + L(h);
-    return M.toLowerCase()
+
+function utf8_encode(argString) {
+
+    if (argString === null || typeof argString === 'undefined') {
+        return '';
+    }
+
+    var string = (argString + ''); // .replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+    var utftext = '',
+        start, end, stringl = 0;
+
+    start = end = 0;
+    stringl = string.length;
+    for (var n = 0; n < stringl; n++) {
+        var c1 = string.charCodeAt(n);
+        var enc = null;
+
+        if (c1 < 128) {
+            end++;
+        } else if (c1 > 127 && c1 < 2048) {
+            enc = String.fromCharCode(
+                (c1 >> 6) | 192, (c1 & 63) | 128
+            );
+        } else if ((c1 & 0xF800) != 0xD800) {
+            enc = String.fromCharCode(
+                (c1 >> 12) | 224, ((c1 >> 6) & 63) | 128, (c1 & 63) | 128
+            );
+        } else { // surrogate pairs
+            if ((c1 & 0xFC00) != 0xD800) {
+                throw new RangeError('Unmatched trail surrogate at ' + n);
+            }
+            var c2 = string.charCodeAt(++n);
+            if ((c2 & 0xFC00) != 0xDC00) {
+                throw new RangeError('Unmatched lead surrogate at ' + (n - 1));
+            }
+            c1 = ((c1 & 0x3FF) << 10) + (c2 & 0x3FF) + 0x10000;
+            enc = String.fromCharCode(
+                (c1 >> 18) | 240, ((c1 >> 12) & 63) | 128, ((c1 >> 6) & 63) | 128, (c1 & 63) | 128
+            );
+        }
+        if (enc !== null) {
+            if (end > start) {
+                utftext += string.slice(start, end);
+            }
+            utftext += enc;
+            start = end = n + 1;
+        }
+    }
+
+    if (end > start) {
+        utftext += string.slice(start, stringl);
+    }
+
+    return utftext;
+}
+
+function md5(str) {
+
+    var xl;
+
+    var rotateLeft = function(lValue, iShiftBits) {
+        return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
+    };
+
+    var addUnsigned = function(lX, lY) {
+        var lX4, lY4, lX8, lY8, lResult;
+        lX8 = (lX & 0x80000000);
+        lY8 = (lY & 0x80000000);
+        lX4 = (lX & 0x40000000);
+        lY4 = (lY & 0x40000000);
+        lResult = (lX & 0x3FFFFFFF) + (lY & 0x3FFFFFFF);
+        if (lX4 & lY4) {
+            return (lResult ^ 0x80000000 ^ lX8 ^ lY8);
+        }
+        if (lX4 | lY4) {
+            if (lResult & 0x40000000) {
+                return (lResult ^ 0xC0000000 ^ lX8 ^ lY8);
+            } else {
+                return (lResult ^ 0x40000000 ^ lX8 ^ lY8);
+            }
+        } else {
+            return (lResult ^ lX8 ^ lY8);
+        }
+    };
+
+    var _F = function(x, y, z) {
+        return (x & y) | ((~x) & z);
+    };
+    var _G = function(x, y, z) {
+        return (x & z) | (y & (~z));
+    };
+    var _H = function(x, y, z) {
+        return (x ^ y ^ z);
+    };
+    var _I = function(x, y, z) {
+        return (y ^ (x | (~z)));
+    };
+
+    var _FF = function(a, b, c, d, x, s, ac) {
+        a = addUnsigned(a, addUnsigned(addUnsigned(_F(b, c, d), x), ac));
+        return addUnsigned(rotateLeft(a, s), b);
+    };
+
+    var _GG = function(a, b, c, d, x, s, ac) {
+        a = addUnsigned(a, addUnsigned(addUnsigned(_G(b, c, d), x), ac));
+        return addUnsigned(rotateLeft(a, s), b);
+    };
+
+    var _HH = function(a, b, c, d, x, s, ac) {
+        a = addUnsigned(a, addUnsigned(addUnsigned(_H(b, c, d), x), ac));
+        return addUnsigned(rotateLeft(a, s), b);
+    };
+
+    var _II = function(a, b, c, d, x, s, ac) {
+        a = addUnsigned(a, addUnsigned(addUnsigned(_I(b, c, d), x), ac));
+        return addUnsigned(rotateLeft(a, s), b);
+    };
+
+    var convertToWordArray = function(str) {
+        var lWordCount;
+        var lMessageLength = str.length;
+        var lNumberOfWords_temp1 = lMessageLength + 8;
+        var lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64;
+        var lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16;
+        var lWordArray = new Array(lNumberOfWords - 1);
+        var lBytePosition = 0;
+        var lByteCount = 0;
+        while (lByteCount < lMessageLength) {
+            lWordCount = (lByteCount - (lByteCount % 4)) / 4;
+            lBytePosition = (lByteCount % 4) * 8;
+            lWordArray[lWordCount] = (lWordArray[lWordCount] | (str.charCodeAt(lByteCount) << lBytePosition));
+            lByteCount++;
+        }
+        lWordCount = (lByteCount - (lByteCount % 4)) / 4;
+        lBytePosition = (lByteCount % 4) * 8;
+        lWordArray[lWordCount] = lWordArray[lWordCount] | (0x80 << lBytePosition);
+        lWordArray[lNumberOfWords - 2] = lMessageLength << 3;
+        lWordArray[lNumberOfWords - 1] = lMessageLength >>> 29;
+        return lWordArray;
+    };
+
+    var wordToHex = function(lValue) {
+        var wordToHexValue = '',
+            wordToHexValue_temp = '',
+            lByte, lCount;
+        for (lCount = 0; lCount <= 3; lCount++) {
+            lByte = (lValue >>> (lCount * 8)) & 255;
+            wordToHexValue_temp = '0' + lByte.toString(16);
+            wordToHexValue = wordToHexValue + wordToHexValue_temp.substr(wordToHexValue_temp.length - 2, 2);
+        }
+        return wordToHexValue;
+    };
+
+    var x = [],
+        k, AA, BB, CC, DD, a, b, c, d, S11 = 7,
+        S12 = 12,
+        S13 = 17,
+        S14 = 22,
+        S21 = 5,
+        S22 = 9,
+        S23 = 14,
+        S24 = 20,
+        S31 = 4,
+        S32 = 11,
+        S33 = 16,
+        S34 = 23,
+        S41 = 6,
+        S42 = 10,
+        S43 = 15,
+        S44 = 21;
+
+    str = this.utf8_encode(str);
+    x = convertToWordArray(str);
+    a = 0x67452301;
+    b = 0xEFCDAB89;
+    c = 0x98BADCFE;
+    d = 0x10325476;
+
+    xl = x.length;
+    for (k = 0; k < xl; k += 16) {
+        AA = a;
+        BB = b;
+        CC = c;
+        DD = d;
+        a = _FF(a, b, c, d, x[k + 0], S11, 0xD76AA478);
+        d = _FF(d, a, b, c, x[k + 1], S12, 0xE8C7B756);
+        c = _FF(c, d, a, b, x[k + 2], S13, 0x242070DB);
+        b = _FF(b, c, d, a, x[k + 3], S14, 0xC1BDCEEE);
+        a = _FF(a, b, c, d, x[k + 4], S11, 0xF57C0FAF);
+        d = _FF(d, a, b, c, x[k + 5], S12, 0x4787C62A);
+        c = _FF(c, d, a, b, x[k + 6], S13, 0xA8304613);
+        b = _FF(b, c, d, a, x[k + 7], S14, 0xFD469501);
+        a = _FF(a, b, c, d, x[k + 8], S11, 0x698098D8);
+        d = _FF(d, a, b, c, x[k + 9], S12, 0x8B44F7AF);
+        c = _FF(c, d, a, b, x[k + 10], S13, 0xFFFF5BB1);
+        b = _FF(b, c, d, a, x[k + 11], S14, 0x895CD7BE);
+        a = _FF(a, b, c, d, x[k + 12], S11, 0x6B901122);
+        d = _FF(d, a, b, c, x[k + 13], S12, 0xFD987193);
+        c = _FF(c, d, a, b, x[k + 14], S13, 0xA679438E);
+        b = _FF(b, c, d, a, x[k + 15], S14, 0x49B40821);
+        a = _GG(a, b, c, d, x[k + 1], S21, 0xF61E2562);
+        d = _GG(d, a, b, c, x[k + 6], S22, 0xC040B340);
+        c = _GG(c, d, a, b, x[k + 11], S23, 0x265E5A51);
+        b = _GG(b, c, d, a, x[k + 0], S24, 0xE9B6C7AA);
+        a = _GG(a, b, c, d, x[k + 5], S21, 0xD62F105D);
+        d = _GG(d, a, b, c, x[k + 10], S22, 0x2441453);
+        c = _GG(c, d, a, b, x[k + 15], S23, 0xD8A1E681);
+        b = _GG(b, c, d, a, x[k + 4], S24, 0xE7D3FBC8);
+        a = _GG(a, b, c, d, x[k + 9], S21, 0x21E1CDE6);
+        d = _GG(d, a, b, c, x[k + 14], S22, 0xC33707D6);
+        c = _GG(c, d, a, b, x[k + 3], S23, 0xF4D50D87);
+        b = _GG(b, c, d, a, x[k + 8], S24, 0x455A14ED);
+        a = _GG(a, b, c, d, x[k + 13], S21, 0xA9E3E905);
+        d = _GG(d, a, b, c, x[k + 2], S22, 0xFCEFA3F8);
+        c = _GG(c, d, a, b, x[k + 7], S23, 0x676F02D9);
+        b = _GG(b, c, d, a, x[k + 12], S24, 0x8D2A4C8A);
+        a = _HH(a, b, c, d, x[k + 5], S31, 0xFFFA3942);
+        d = _HH(d, a, b, c, x[k + 8], S32, 0x8771F681);
+        c = _HH(c, d, a, b, x[k + 11], S33, 0x6D9D6122);
+        b = _HH(b, c, d, a, x[k + 14], S34, 0xFDE5380C);
+        a = _HH(a, b, c, d, x[k + 1], S31, 0xA4BEEA44);
+        d = _HH(d, a, b, c, x[k + 4], S32, 0x4BDECFA9);
+        c = _HH(c, d, a, b, x[k + 7], S33, 0xF6BB4B60);
+        b = _HH(b, c, d, a, x[k + 10], S34, 0xBEBFBC70);
+        a = _HH(a, b, c, d, x[k + 13], S31, 0x289B7EC6);
+        d = _HH(d, a, b, c, x[k + 0], S32, 0xEAA127FA);
+        c = _HH(c, d, a, b, x[k + 3], S33, 0xD4EF3085);
+        b = _HH(b, c, d, a, x[k + 6], S34, 0x4881D05);
+        a = _HH(a, b, c, d, x[k + 9], S31, 0xD9D4D039);
+        d = _HH(d, a, b, c, x[k + 12], S32, 0xE6DB99E5);
+        c = _HH(c, d, a, b, x[k + 15], S33, 0x1FA27CF8);
+        b = _HH(b, c, d, a, x[k + 2], S34, 0xC4AC5665);
+        a = _II(a, b, c, d, x[k + 0], S41, 0xF4292244);
+        d = _II(d, a, b, c, x[k + 7], S42, 0x432AFF97);
+        c = _II(c, d, a, b, x[k + 14], S43, 0xAB9423A7);
+        b = _II(b, c, d, a, x[k + 5], S44, 0xFC93A039);
+        a = _II(a, b, c, d, x[k + 12], S41, 0x655B59C3);
+        d = _II(d, a, b, c, x[k + 3], S42, 0x8F0CCC92);
+        c = _II(c, d, a, b, x[k + 10], S43, 0xFFEFF47D);
+        b = _II(b, c, d, a, x[k + 1], S44, 0x85845DD1);
+        a = _II(a, b, c, d, x[k + 8], S41, 0x6FA87E4F);
+        d = _II(d, a, b, c, x[k + 15], S42, 0xFE2CE6E0);
+        c = _II(c, d, a, b, x[k + 6], S43, 0xA3014314);
+        b = _II(b, c, d, a, x[k + 13], S44, 0x4E0811A1);
+        a = _II(a, b, c, d, x[k + 4], S41, 0xF7537E82);
+        d = _II(d, a, b, c, x[k + 11], S42, 0xBD3AF235);
+        c = _II(c, d, a, b, x[k + 2], S43, 0x2AD7D2BB);
+        b = _II(b, c, d, a, x[k + 9], S44, 0xEB86D391);
+        a = addUnsigned(a, AA);
+        b = addUnsigned(b, BB);
+        c = addUnsigned(c, CC);
+        d = addUnsigned(d, DD);
+    }
+
+    var temp = wordToHex(a) + wordToHex(b) + wordToHex(c) + wordToHex(d);
+
+    return temp.toLowerCase();
 }
 
 function sha1(r) {
     var e, o, a, t, c, h, n, f, s, u = function(r, e) {
-        var o = r << e | r >>> 32 - e;
-        return o
-    },
-    C = function(r) {
-        var e, o, a = "";
-        for (e = 7; e >= 0; e--) o = r >>> 4 * e & 15, a += o.toString(16);
+            var o = r << e | r >>> 32 - e;
+            return o
+        },
+        C = function(r) {
+            var e, o, a = "";
+            for (e = 7; e >= 0; e--) o = r >>> 4 * e & 15, a += o.toString(16);
             return a
-    },
-    d = new Array(80),
-    A = 1732584193,
-    p = 4023233417,
-    i = 2562383102,
-    g = 271733878,
-    v = 3285377520;
+        },
+        d = new Array(80),
+        A = 1732584193,
+        p = 4023233417,
+        i = 2562383102,
+        g = 271733878,
+        v = 3285377520;
     r = unescape(encodeURIComponent(r));
     var b = r.length,
-    k = [];
+        k = [];
     for (o = 0; b - 3 > o; o += 4) a = r.charCodeAt(o) << 24 | r.charCodeAt(o + 1) << 16 | r.charCodeAt(o + 2) << 8 | r.charCodeAt(o + 3), k.push(a);
-        switch (b % 4) {
-            case 0:
+    switch (b % 4) {
+        case 0:
             o = 2147483648;
             break;
-            case 1:
+        case 1:
             o = r.charCodeAt(b - 1) << 24 | 8388608;
             break;
-            case 2:
+        case 2:
             o = r.charCodeAt(b - 2) << 24 | r.charCodeAt(b - 1) << 16 | 32768;
             break;
-            case 3:
+        case 3:
             o = r.charCodeAt(b - 3) << 24 | r.charCodeAt(b - 2) << 16 | r.charCodeAt(b - 1) << 8 | 128
+    }
+    for (k.push(o); k.length % 16 != 14;) k.push(0);
+    for (k.push(b >>> 29), k.push(b << 3 & 4294967295), e = 0; e < k.length; e += 16) {
+        for (o = 0; 16 > o; o++) d[o] = k[e + o];
+        for (o = 16; 79 >= o; o++) d[o] = u(d[o - 3] ^ d[o - 8] ^ d[o - 14] ^ d[o - 16], 1);
+        for (t = A, c = p, h = i, n = g, f = v, o = 0; 19 >= o; o++) s = u(t, 5) + (c & h | ~c & n) + f + d[o] + 1518500249 & 4294967295, f = n, n = h, h = u(c, 30), c = t, t = s;
+        for (o = 20; 39 >= o; o++) s = u(t, 5) + (c ^ h ^ n) + f + d[o] + 1859775393 & 4294967295, f = n, n = h, h = u(c, 30), c = t, t = s;
+        for (o = 40; 59 >= o; o++) s = u(t, 5) + (c & h | c & n | h & n) + f + d[o] + 2400959708 & 4294967295, f = n, n = h, h = u(c, 30), c = t, t = s;
+        for (o = 60; 79 >= o; o++) s = u(t, 5) + (c ^ h ^ n) + f + d[o] + 3395469782 & 4294967295, f = n, n = h, h = u(c, 30), c = t, t = s;
+        A = A + t & 4294967295, p = p + c & 4294967295, i = i + h & 4294967295, g = g + n & 4294967295, v = v + f & 4294967295
+    }
+    return s = C(A) + C(p) + C(i) + C(g) + C(v), s.toLowerCase()
+}
+
+jQuery.extend({
+    form_bootstrap: function() {
+        return true;
+    }
+});
+
+jQuery.fn.serializeObject = function() {
+    "use strict";
+    var a = {},
+        b = function(b, c) {
+            var d = a[c.name];
+            "undefined" != typeof d && d !== null ? $.isArray(d) ? d.push(c.value) : a[c.name] = [d, c.value] : a[c.name] = c.value
+        };
+    return jQuery.each(this.serializeArray(), b), a
+};
+
+function mascara(o, f) {
+    v_obj = o;
+    v_func = f;
+    setTimeout("exec()", 1);
+}
+
+function exec() {
+    v_obj.value = v_func(v_obj.value);
+}
+
+function telefone(v) {
+    v = v.replace(/\D/g, "");
+    v = v.replace(/^(\d\d)(\d)/g, "($1) $2");
+    v = v.replace(/(\d{4})(\d)/, "$1-$2");
+    return v;
+}
+
+function cep(v) {
+    v = v.replace(/\D/g, "");
+    v = v.replace(/^(\d\d)(\d)/g, "$1 $2");
+    v = v.replace(/(\d{3})(\d)/, "$1-$2");
+    return v;
+}
+
+function timer(v) {
+    v = v.replace(/\D/g, "");
+    v = v.replace(/^(\d\d)(\d)/g, "$1:$2");
+    if (v.length == 1 && !(/([0-2])/).test(v)) {
+        v = "";
+    }
+    if (v.length == 2 && !(/([0-1][0-9]|2[0-3])/).test(v)) {
+        v = v.substring(0, 1);
+    }
+    if (v.length == 4 && !(/([0-1][0-9]|2[0-3]):[0-5]/).test(v)) {
+        v = v.substring(0, 3);
+    }
+    if (v.length == 5 && !(/([0-1][0-9]|2[0-3]):[0-5][0-9]/).test(v)) {
+        v = v.substring(0, 4);
+    }
+    if ((/([0-1][0-9]|2[0-3]):[0-5][0-9]/).test(v)) {
+        v += " h";
+    }
+    return v;
+}
+
+function data(v) {
+    v = v.replace(/\D/g, "");
+    v = v.replace(/^(\d\d)(\d)/g, "$1/$2");
+    v = v.replace(/(\d{2})(\d)/, "$1/$2");
+    return v;
+}
+
+function cnpj(v) {
+    v = v.replace(/\D/g, "");
+    v = v.replace(/(\d\d)(\d)/, "$1.$2");
+    v = v.replace(/(\d\d\d)(\d)/, "$1.$2");
+    v = v.replace(/(\d\d\d)(\d)/, "$1/$2");
+    v = v.replace(/(\d\d\d\d)(\d)/, "$1-$2");
+    return v;
+}
+
+function cpf(v) {
+    v = v.replace(/\D/g, "");
+    v = v.replace(/(\d\d\d)(\d)/, "$1.$2");
+    v = v.replace(/(\d\d\d)(\d)/, "$1.$2");
+    v = v.replace(/(\d\d\d)(\d)/, "$1-$2");
+    return v;
+}
+
+function so_numeros(v) {
+    v = v.replace(/\D/g, "");
+    return v;
+}
+
+function so_texto(v) {
+    v = v.replace(/\d/g, "");
+    return v;
+}
+
+var campo;
+
+jQuery('input.timer').attr('maxlength', 5);
+jQuery('input.timer').attr('data-minlength', 5);
+campo = jQuery('input.timer');
+campo.keypress(function() {
+    mascara(this, timer);
+});
+campo.change(function() {
+    mascara(this, timer);
+});
+
+jQuery('input.phone').attr('maxlength', 15);
+jQuery('input.phone').attr('data-minlength', 14);
+campo = jQuery('input.phone');
+campo.keypress(function() {
+    mascara(this, telefone);
+});
+campo.change(function() {
+    mascara(this, telefone);
+});
+
+jQuery('input.cnpj').attr('maxlength', 18);
+jQuery('input.cnpj').attr('data-minlength', 18);
+campo = jQuery('input.cnpj');
+campo.keypress(function() {
+    mascara(this, cnpj);
+});
+campo.change(function() {
+    mascara(this, cnpj);
+});
+
+jQuery('input.cpf').attr('maxlength', 14);
+jQuery('input.cpf').attr('data-minlength', 14);
+campo = jQuery('input.cpf');
+campo.keypress(function() {
+    mascara(this, cpf);
+});
+campo.change(function() {
+    mascara(this, cpf);
+});
+
+jQuery('input.data').attr('maxlength', 10);
+jQuery('input.data').attr('data-minlength', 10);
+campo = jQuery('input.data');
+campo.keypress(function() {
+    mascara(this, data);
+});
+campo.change(function() {
+    mascara(this, data);
+});
+
+jQuery('input.cep').attr('maxlength', 10);
+jQuery('input.cep').attr('data-minlength', 10);
+campo = jQuery('input.cep');
+campo.keypress(function() {
+    mascara(this, cep);
+});
+campo.change(function() {
+    mascara(this, cep);
+});
+
+campo = jQuery('input.so-numero');
+campo.keypress(function() {
+    mascara(this, so_numeros);
+});
+campo.change(function() {
+    mascara(this, so_numeros);
+});
+
+campo = jQuery('input.so-texto');
+campo.keypress(function() {
+    mascara(this, so_texto);
+});
+campo.change(function() {
+    mascara(this, so_texto);
+});
+
+jQuery('input:not(.no-blocked)').on('keydown', function(event) {
+    var tecla = String.fromCharCode(event.keyCode).toLowerCase();
+    if ((event.ctrlKey || event.metaKey) && (tecla == "c" || tecla == "v")) {
+        window.event ? event.returnValue = false : event.preventDefault();
+        return false
+    }
+}).on('contextmenu', function() {
+    return false;
+});
+
+jQuery('form').attr('novalidate', 'novalidate');
+jQuery('form').submit(function(ev) {
+    ev.preventDefault();
+    var _self = jQuery(this);
+    jQuery.extend({
+        form_bootstrap: function() {
+            return Boolean(_self.attr('data-bootstrap'));
         }
-        for (k.push(o); k.length % 16 != 14;) k.push(0);
-            for (k.push(b >>> 29), k.push(b << 3 & 4294967295), e = 0; e < k.length; e += 16) {
-                for (o = 0; 16 > o; o++) d[o] = k[e + o];
-                    for (o = 16; 79 >= o; o++) d[o] = u(d[o - 3] ^ d[o - 8] ^ d[o - 14] ^ d[o - 16], 1);
-                        for (t = A, c = p, h = i, n = g, f = v, o = 0; 19 >= o; o++) s = u(t, 5) + (c & h | ~c & n) + f + d[o] + 1518500249 & 4294967295, f = n, n = h, h = u(c, 30), c = t, t = s;
-                            for (o = 20; 39 >= o; o++) s = u(t, 5) + (c ^ h ^ n) + f + d[o] + 1859775393 & 4294967295, f = n, n = h, h = u(c, 30), c = t, t = s;
-                                for (o = 40; 59 >= o; o++) s = u(t, 5) + (c & h | c & n | h & n) + f + d[o] + 2400959708 & 4294967295, f = n, n = h, h = u(c, 30), c = t, t = s;
-                                    for (o = 60; 79 >= o; o++) s = u(t, 5) + (c ^ h ^ n) + f + d[o] + 3395469782 & 4294967295, f = n, n = h, h = u(c, 30), c = t, t = s;
-                                        A = A + t & 4294967295, p = p + c & 4294967295, i = i + h & 4294967295, g = g + n & 4294967295, v = v + f & 4294967295
-                                }
-                                return s = C(A) + C(p) + C(i) + C(g) + C(v), s.toLowerCase()
+    });
+    var aprovado = true;
+    jQuery(_self.attr('data-elsuccess')).hide();
+    if (!jQuery.form_bootstrap()) {
+        jQuery(_self.attr('data-elvalidate')).html('');
+    }
+    _self.find('input, textarea, select').each(function() {
+        var atual = jQuery(this);
+        if (atual.val() == atual.attr('placeholder')) {
+            atual.val("");
+        }
+        if (atual.is('[required]')) {
+            if (jQuery.form_bootstrap()) {
+                atual.parent().addClass('has-feedback');
+                atual.parent().removeClass('has-error');
+                if (atual.parent().find('.help-block').length) {
+                    atual.parent().find('.help-block').html('');
+                } else {
+                    atual.parent().append('<small class="help-block"></small>');
+                }
+            }
+            if ((atual.val() == atual.attr('placeholder') || atual.val().trim() == "" && !atual.is('select')) || (atual.is('select') && atual.find('option:selected').text() == atual.find('option').eq(0).text())) {
+                anima_validacao(atual, atual.attr('data-msgrequired'));
+                aprovado = false;
+                return false;
+            } else {
+                if (atual.attr('type') == 'checkbox') {
+                    if (!atual.prop('checked')) {
+                        anima_validacao(atual, atual.attr('data-msgrequired'));
+                        aprovado = false;
+                        return false;
+                    }
+                }
+                if (atual.attr('type') == 'email' && !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(atual.val()))) {
+                    anima_validacao(atual, atual.attr('data-msgvalidate'));
+                    aprovado = false;
+                    return false;
+                }
+                if (atual.attr('data-minlength') && atual.val().length < atual.attr('data-minlength')) {
+                    anima_validacao(atual, atual.attr('data-msgvalidate'));
+                    aprovado = false;
+                    return false;
+                }
+
+                if (atual.hasClass('cpf')) {
+                    if (!valida_cpf(atual.val())) {
+                        anima_validacao(atual, atual.attr('data-msgvalidate'));
+                        aprovado = false;
+                        return false;
+                    }
+                }
+                if (atual.hasClass('cnpj')) {
+                    if (!valida_cnpj(atual.val())) {
+                        anima_validacao(atual, atual.attr('data-msgvalidate'));
+                        aprovado = false;
+                        return false;
+                    }
+                }
+                if (atual.attr('type') == 'file' && atual.attr('data-extencoes')) {
+                    var extensoes = atual.attr('data-extencoes');
+                    extensoes = extensoes.split(",");
+                    for (var i = 0; i < extensoes.length; i++) {
+                        extensoes[i] = extensoes[i].trim();
+                    }
+                    var extensoesValidas = extensoes;
+                    var caminho = atual.val();
+                    var extensao = caminho.substr(caminho.lastIndexOf("."), caminho.length - caminho.lastIndexOf("."));
+                    var ocorrencia = false;
+                    var tamanhoMaximo = 0;
+                    if (Boolean(jQuery("input[name='file']").attr('data-maxsize')) && Boolean(jQuery("input[name='file']").attr('data-typesize'))) {
+                        if (jQuery("input[name='file']").attr('data-typesize').toUpperCase() == 'MB') {
+                            tamanhoMaximo = parseInt(atual.attr('data-maxsize')) * 1024 * 1024;
+                        } else {
+                            /*TAMANHO EM KB POR DEFAULT*/
+                            tamanhoMaximo = parseInt(atual.attr('data-maxsize')) * 1024;
+                        }
+                    }
+                    var tamanhoArquivo = parseInt(atual.attr("data-filesize"));
+                    for (var i = 0; i < extensoesValidas.length; i++) {
+                        if (extensoesValidas[i].toUpperCase() == extensao.toUpperCase()) {
+                            ocorrencia = true;
+                            break;
+                        }
+                    }
+                    if (ocorrencia == false || (tamanhoArquivo > tamanhoMaximo && tamanhoMaximo > 0)) {
+                        anima_validacao(atual, atual.attr('data-msgvalidate'));
+                        aprovado = false;
+                        return false;
+                    }
+                }
+                if (atual.attr('type') == 'password' || atual.attr('type') == 'email') {
+                    var total = _self.find('[name=' + atual.attr('name') + ']').length,
+                        senhas = [],
+                        senha;
+                    if (total > 1) {
+                        for (var i = 0; i < total; i++) {
+                            senha = _self.find('[name=' + atual.attr('name') + ']').eq(i).val();
+                            if (senhas.indexOf(senha) == -1) {
+                                senhas.push(senha);
                             }
+                            _self.find('[name=' + atual.attr('name') + ']').eq(i).attr('data-index', i);
+                        };
+                        if (atual.attr('data-index') == total - 1 && senhas.length > 1) {
+                            anima_validacao(atual, atual.attr('data-msgequals'));
+                            aprovado = false;
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+    })
 
-                            jQuery.extend({
-                                form_bootstrap: function() {
-                                    return true;
-                                }
-                            });
-
-                            jQuery.fn.serializeObject = function() {
-                                "use strict";
-                                var a = {},
-                                b = function(b, c) {
-                                    var d = a[c.name];
-                                    "undefined" != typeof d && d !== null ? $.isArray(d) ? d.push(c.value) : a[c.name] = [d, c.value] : a[c.name] = c.value
-                                };
-                                return jQuery.each(this.serializeArray(), b), a
-                            };
-
-                            function mascara(o, f) {
-                                v_obj = o;
-                                v_func = f;
-                                setTimeout("exec()", 1);
-                            }
-
-                            function exec() {
-                                v_obj.value = v_func(v_obj.value);
-                            }
-
-                            function telefone(v) {
-                                v = v.replace(/\D/g, "");
-                                v = v.replace(/^(\d\d)(\d)/g, "($1) $2");
-                                v = v.replace(/(\d{4})(\d)/, "$1-$2");
-                                return v;
-                            }
-
-                            function cep(v) {
-                                v = v.replace(/\D/g, "");
-                                v = v.replace(/^(\d\d)(\d)/g, "$1 $2");
-                                v = v.replace(/(\d{3})(\d)/, "$1-$2");
-                                return v;
-                            }
-
-                            function timer(v) {
-                                v = v.replace(/\D/g, "");
-                                v = v.replace(/^(\d\d)(\d)/g, "$1:$2");
-                                if (v.length == 1 && !(/([0-2])/).test(v)) {
-                                    v = "";
-                                }
-                                if (v.length == 2 && !(/([0-1][0-9]|2[0-3])/).test(v)) {
-                                    v = v.substring(0, 1);
-                                }
-                                if (v.length == 4 && !(/([0-1][0-9]|2[0-3]):[0-5]/).test(v)) {
-                                    v = v.substring(0, 3);
-                                }
-                                if (v.length == 5 && !(/([0-1][0-9]|2[0-3]):[0-5][0-9]/).test(v)) {
-                                    v = v.substring(0, 4);
-                                }
-                                if ((/([0-1][0-9]|2[0-3]):[0-5][0-9]/).test(v)) {
-                                    v += " h";
-                                }
-                                return v;
-                            }
-
-                            function data(v) {
-                                v = v.replace(/\D/g, "");
-                                v = v.replace(/^(\d\d)(\d)/g, "$1/$2");
-                                v = v.replace(/(\d{2})(\d)/, "$1/$2");
-                                return v;
-                            }
-
-                            function cnpj(v) {
-                                v = v.replace(/\D/g, "");
-                                v = v.replace(/(\d\d)(\d)/, "$1.$2");
-                                v = v.replace(/(\d\d\d)(\d)/, "$1.$2");
-                                v = v.replace(/(\d\d\d)(\d)/, "$1/$2");
-                                v = v.replace(/(\d\d\d\d)(\d)/, "$1-$2");
-                                return v;
-                            }
-
-                            function cpf(v) {
-                                v = v.replace(/\D/g, "");
-                                v = v.replace(/(\d\d\d)(\d)/, "$1.$2");
-                                v = v.replace(/(\d\d\d)(\d)/, "$1.$2");
-                                v = v.replace(/(\d\d\d)(\d)/, "$1-$2");
-                                return v;
-                            }
-
-                            function so_numeros(v) {
-                                v = v.replace(/\D/g, "");
-                                return v;
-                            }
-
-                            function so_texto(v) {
-                                v = v.replace(/\d/g, "");
-                                return v;
-                            }
-
-                            var campo;
-
-                            jQuery('input.timer').attr('maxlength', 5);
-                            jQuery('input.timer').data('minlength', 5);
-                            campo = jQuery('input.timer');
-                            campo.keypress(function() {
-                                mascara(this, timer);
-                            });
-                            campo.change(function() {
-                                mascara(this, timer);
-                            });
-
-                            jQuery('input.phone').attr('maxlength', 15);
-                            jQuery('input.phone').data('minlength', 14);
-                            campo = jQuery('input.phone');
-                            campo.keypress(function() {
-                                mascara(this, telefone);
-                            });
-                            campo.change(function() {
-                                mascara(this, telefone);
-                            });
-
-                            jQuery('input.cnpj').attr('maxlength', 18);
-                            jQuery('input.cnpj').data('minlength', 18);
-                            campo = jQuery('input.cnpj');
-                            campo.keypress(function() {
-                                mascara(this, cnpj);
-                            });
-                            campo.change(function() {
-                                mascara(this, cnpj);
-                            });
-
-                            jQuery('input.cpf').attr('maxlength', 14);
-                            jQuery('input.cpf').data('minlength', 14);
-                            campo = jQuery('input.cpf');
-                            campo.keypress(function() {
-                                mascara(this, cpf);
-                            });
-                            campo.change(function() {
-                                mascara(this, cpf);
-                            });
-
-                            jQuery('input.data').attr('maxlength', 10);
-                            jQuery('input.data').data('minlength', 10);
-                            campo = jQuery('input.data');
-                            campo.keypress(function() {
-                                mascara(this, data);
-                            });
-                            campo.change(function() {
-                                mascara(this, data);
-                            });
-
-                            jQuery('input.cep').attr('maxlength', 10);
-                            jQuery('input.cep').data('minlength', 10);
-                            campo = jQuery('input.cep');
-                            campo.keypress(function() {
-                                mascara(this, cep);
-                            });
-                            campo.change(function() {
-                                mascara(this, cep);
-                            });
-
-                            campo = jQuery('input.so-numero');
-                            campo.keypress(function() {
-                                mascara(this, so_numeros);
-                            });
-                            campo.change(function() {
-                                mascara(this, so_numeros);
-                            });
-
-                            campo = jQuery('input.so-texto');
-                            campo.keypress(function() {
-                                mascara(this, so_texto);
-                            });
-                            campo.change(function() {
-                                mascara(this, so_texto);
-                            });
-
-                            jQuery('input:not(.no-blocked)').on('keydown', function(event) {
-                                var tecla = String.fromCharCode(event.keyCode).toLowerCase();
-                                if ((event.ctrlKey || event.metaKey) && (tecla == "c" || tecla == "v")) {
-                                    window.event ? event.returnValue = false : event.preventDefault();
-                                    return false
-                                }
-                            }).on('contextmenu', function() {
-                                return false;
-                            });
-
-                            jQuery('form').attr('novalidate', 'novalidate');
-                            jQuery('form').submit(function(ev) {
-                                ev.preventDefault();
-                                var _self = jQuery(this);
-                                jQuery.extend({
-                                    form_bootstrap: function() {
-                                        return Boolean(_self.data('bootstrap'));
-                                    }
-                                });
-                                var aprovado = true;
-                                jQuery(_self.data('elsuccess')).hide();
-                                if (!jQuery.form_bootstrap()) {
-                                    jQuery(_self.data('elvalidate')).html('');
-                                }
-                                _self.find('input, textarea, select').each(function() {
-                                    var atual = jQuery(this);
-                                    if (atual.val() == atual.attr('placeholder')) {
-                                        atual.val("");
-                                    }
-                                    if (atual.is('[required]')) {
-                                        if (jQuery.form_bootstrap()) {
-                                            atual.parent().addClass('has-feedback');
-                                            atual.parent().removeClass('has-error');
-                                            if (atual.parent().find('.help-block').length) {
-                                                atual.parent().find('.help-block').html('');
-                                            } else {
-                                                atual.parent().append('<small class="help-block"></small>');
-                                            }
-                                        }
-                                        if ((atual.val() == atual.attr('placeholder') || atual.val().trim() == "" && !atual.is('select')) || (atual.is('select') && atual.find('option:selected').text() == atual.find('option').eq(0).text())) {
-                                            anima_validacao(atual, atual.data('msgrequired'));
-                                            aprovado = false;
-                                            return false;
-                                        } else {
-                                            if (atual.attr('type') == 'checkbox') {
-                                                if (!atual.prop('checked')) {
-                                                    anima_validacao(atual, atual.data('msgrequired'));
-                                                    aprovado = false;
-                                                    return false;
-                                                }
-                                            }
-                                            if (atual.attr('type') == 'email' && !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(atual.val()))) {
-                                                anima_validacao(atual, atual.data('msgvalidate'));
-                                                aprovado = false;
-                                                return false;
-                                            }
-                                            if (atual.data('minlength') && atual.val().length < atual.data('minlength')) {
-                                                anima_validacao(atual, atual.data('msgvalidate'));
-                                                aprovado = false;
-                                                return false;
-                                            }
-
-                                            if (atual.hasClass('cpf')) {
-                                                if (!valida_cpf(atual.val())) {
-                                                    anima_validacao(atual, atual.data('msgvalidate'));
-                                                    aprovado = false;
-                                                    return false;
-                                                }
-                                            }
-                                            if (atual.hasClass('cnpj')) {
-                                                if (!valida_cnpj(atual.val())) {
-                                                    anima_validacao(atual, atual.data('msgvalidate'));
-                                                    aprovado = false;
-                                                    return false;
-                                                }
-                                            }
-                                            if (atual.attr('type') == 'file' && atual.data('extencoes')) {
-                                                var extensoes = atual.data('extencoes');
-                                                extensoes = extensoes.trim().replace(/,/g, '').replace(/^\s\s*/, '').replace(/\s\s*$/, '').replace(/[\s,]+/g, ',');
-                                                extensoes = extensoes.split(",");
-                                                var extensoesValidas = extensoes;
-                                                var caminho = atual.val();
-                                                var extensao = caminho.substr(caminho.lastIndexOf("."), caminho.length - caminho.lastIndexOf("."));
-                                                var ocorrencia = false;
-                                                var tamanhoMaximo = parseInt(atual.data('maxsize')) * 1024 * 1024;
-                                                var tamanhoArquivo = parseInt(atual.attr("data-filesize"));
-                                                for (var i = 0; i < extensoesValidas.length; i++) {
-                                                    if (extensoesValidas[i].toUpperCase() == extensao.toUpperCase()) {
-                                                        ocorrencia = true;
-                                                        break;
-                                                    }
-                                                }
-                                                if (ocorrencia == false || tamanhoArquivo > tamanhoMaximo) {
-                                                    if (ocorrencia == false) {
-                                                        anima_validacao(atual, atual.data('msgvalidate'));
-                                                        aprovado = false;
-                                                        return false;
-                                                    } else {
-                                                        anima_validacao(atual, atual.data('msgrequired'));
-                                                        aprovado = false;
-                                                        return false;
-                                                    }
-                                                }
-                                            }
-                                            if (atual.attr('type') == 'password' || atual.attr('type') == 'email') {
-                                                var total = _self.find('[name=' + atual.attr('name') + ']').length,
-                                                senhas = [],
-                                                senha;
-                                                if (total > 1) {
-                                                    for (var i = 0; i < total; i++) {
-                                                        senha = _self.find('[name=' + atual.attr('name') + ']').eq(i).val();
-                                                        if (senhas.indexOf(senha) == -1) {
-                                                            senhas.push(senha);
-                                                        }
-                                                        _self.find('[name=' + atual.attr('name') + ']').eq(i).data('index', i);
-                                                    };
-                                                    if (atual.data('index') == total - 1 && senhas.length > 1) {
-                                                        anima_validacao(atual, atual.data('msgequals'));
-                                                        aprovado = false;
-                                                        return false;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                })
-if (_self.hasClass('md5') || _self.hasClass('sha1')) {
     jQuery.each(_self.find('[type=password]'), function(indice, el) {
-        console.log(el);
-        console.log(el.val());
-        console.log(jQuery(el).val());
-    });
-}
-
-if (aprovado && _self.hasClass('ajax')) {
-    jQuery('.loading').fadeIn('slow');
-    var url = _self.attr('action'),
-    params = _self.serializeObject(),
-    sendmail = jQuery(_self.data('elsend')),
-    msgsuccess = jQuery(_self.data('elsuccess'));
-    jQuery.ajax({
-        type: _self.attr('method'),
-        url: url,
-        async: true,
-        cache: false,
-        data: params,
-        beforeSend: function() {
-            if (sendmail) {
-                sendmail.fadeIn('slow');
+        var el = jQuery(el),
+            cript, value;
+        if (Boolean(el.attr('data-cript'))) {
+            value = el.val();
+            el.attr('data-valback', value);
+            cript = el.attr('data-cript').split(",");
+            for (var i = 0; i < cript.length; i++) {
+                cript[i] = cript[i].trim();
+                if (cript[i].toUpperCase() == 'SHA1') {
+                    value = sha1(value);
+                }
+                if (cript[i].toUpperCase() == 'MD5') {
+                    value = md5(value);
+                }
             }
-        },
-        success: function(data) {
-            if (msgsuccess) {
-                msgsuccess.html(data);
-                msgsuccess.fadeIn('slow');
-                setTimeout(function() {
-                    msgsuccess.fadeOut('slow');
-                }, 10000);
-            }
-        },
-        complete: function() {
-            if (sendmail) {
-                sendmail.fadeOut('slow');
-            }
-        },
-        error: function(xhr, textStatus, errorThrown) {
-
+            el.val(value).trigger('change');
         }
     });
-} else if (aprovado) {
-    _self.unbind('submit').submit();
-}
+
+    if (aprovado && _self.hasClass('ajax')) {
+        jQuery('.loading').fadeIn('slow');
+        var url = _self.attr('action'),
+            params = new FormData(_self[0]),
+            sendmail = jQuery(_self.attr('data-elsend')),
+            msgsuccess = jQuery(_self.attr('data-elsuccess'));
+        jQuery.ajax({
+            type: _self.attr('method'),
+            url: url,
+            async: true,
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: params,
+            beforeSend: function() {
+                if (sendmail) {
+                    sendmail.fadeIn('slow');
+                }
+            },
+            success: function(data) {
+                if (msgsuccess) {
+                    msgsuccess.html(data);
+                    msgsuccess.fadeIn('slow');
+                    setTimeout(function() {
+                        msgsuccess.fadeOut('slow');
+                    }, 10000);
+                }
+            },
+            complete: function() {
+                if (sendmail) {
+                    sendmail.fadeOut('slow');
+                }
+                jQuery.each(_self.find('[type=password]'), function(indice, el) {
+                    jQuery(el).val(jQuery(el).attr('data-valback')).trigger('change');
+                });
+            },
+            error: function(xhr, textStatus, errorThrown) {
+
+            }
+        });
+    } else if (aprovado) {
+        _self.unbind('submit').submit();
+    }
 
 });
 
-jQuery('input[type=file]').change(function() {
-    var f = this.files[0];
+jQuery('input[type=file]').change(function(event) {
+    var f = this.files[0],
+        el = jQuery(this);
     jQuery(this).attr("data-filesize", (f.size || f.fileSize));
+    _self.('input[name=' + el.attr('name') + 'txt]').val(el.val());
 })
 
 function valida_cpf(cpf) {
@@ -530,35 +748,35 @@ function valida_cpf(cpf) {
             digitos_iguais = 0;
             break;
         }
-        if (!digitos_iguais) {
-            numeros = cpf.substring(0, 9);
-            digitos = cpf.substring(9);
-            soma = 0;
-            for (i = 10; i > 1; i--)
-                soma += numeros.charAt(10 - i) * i;
-            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-            if (resultado != digitos.charAt(0))
-                return false;
-            numeros = cpf.substring(0, 10);
-            soma = 0;
-            for (i = 11; i > 1; i--)
-                soma += numeros.charAt(11 - i) * i;
-            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-            if (resultado != digitos.charAt(1))
-                return false;
-            return true;
-        } else
-        return false;
-    }
-
-    function valida_cnpj(cnpj) {
-        cnpj = so_numeros(cnpj);
-        cnpj = cnpj.replace(/[^\d]+/g, '');
-
-        if (cnpj == '') return false;
-
-        if (cnpj.length != 14)
+    if (!digitos_iguais) {
+        numeros = cpf.substring(0, 9);
+        digitos = cpf.substring(9);
+        soma = 0;
+        for (i = 10; i > 1; i--)
+            soma += numeros.charAt(10 - i) * i;
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(0))
             return false;
+        numeros = cpf.substring(0, 10);
+        soma = 0;
+        for (i = 11; i > 1; i--)
+            soma += numeros.charAt(11 - i) * i;
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(1))
+            return false;
+        return true;
+    } else
+        return false;
+}
+
+function valida_cnpj(cnpj) {
+    cnpj = so_numeros(cnpj);
+    cnpj = cnpj.replace(/[^\d]+/g, '');
+
+    if (cnpj == '') return false;
+
+    if (cnpj.length != 14)
+        return false;
 
     // Elimina CNPJs invalidos conhecidos
     if (cnpj == "00000000000000" ||
@@ -607,12 +825,12 @@ function valida_cpf(cpf) {
 
 function anima_validacao(campo_atual, msg) {
     var campo_duracao = 50,
-    msgValidate, campo_prev;
+        msgValidate, campo_prev;
     if (jQuery.form_bootstrap()) {
         msgValidate = campo_atual.parent().find('.help-block');
         campo_atual.parent().addClass('has-error');
     } else {
-        msgValidate = campo_atual.parents('form').data('elvalidate');
+        msgValidate = campo_atual.parents('form').attr('data-elvalidate');
         msgValidate = jQuery(msgValidate);
         campo_atual.addClass('has-error');
     }
@@ -664,8 +882,6 @@ function anima_validacao(campo_atual, msg) {
             }, 600);
         });
     }
-    el_teste = campo_atual;
-    console.log(campo_atual);
     jQuery('html,body').animate({
         scrollTop: (campo_atual.offset().top - 100) + 'px'
     }, 'fast');

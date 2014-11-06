@@ -1,7 +1,7 @@
 <h1>ValidaForm</h1>
 <h3>O melhor script de validação de formulários</h3>
 
-<p>O validaform é um script que foi feito para facilitar a vida do Front-End e Back-End, pois possui suporte à <a href="http://getbootstrap.com/" target="_blank">bootstrap</a>, AJAX, dentre outras.</p>
+<p>O validaform é um script que foi feito para facilitar a vida do Front-End e Back-End, pois possui suporte à <a href="http://getbootstrap.com/" target="_blank">bootstrap</a>, AJAX, <a href="http://silviomoreto.github.io/bootstrap-select/" target="_blank">Bootstrap Select</a> (Select Personalizado), dentre outras.</p>
 
 <h3>Instalação</h3>
 <p>O <code>validaform.js</code> deve ficar no final do <code>&lt;body&gt;</code> e após o <a href="http://jquery.com/" target="_blank">jQuery</a>:</p>
@@ -113,7 +113,7 @@
 	<tr>
 		<td><code>data-cript</code></td>
 		<td>&lt;array&gt;</td>
-		<td>Relação das criptografias (md5 e sha1) utilizadas para o campo do tipo <code>password</code> na forma decrescente. Exemplo: <code>data-cript="md5, sha1, sha1"</code>. Executará assim: <code>sha1(sha1(md5("valor")))</code></td>
+		<td>Relação das criptografias (md5 e sha1) utilizadas para o campo do tipo <code>password</code>. <br>Exemplo: <code>data-cript="md5, sha1, sha1"</code>. Executará assim: <code>sha1(sha1(md5("valor")))</code></td>
 	</tr>
 	<tr>
 		<td><code>data-extencoes</code></td>

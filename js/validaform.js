@@ -455,7 +455,56 @@ function so_texto(v) {
     return v;
 }
 
+function moeda(v) {
+    objTextBox = v;
+    SeparadorDecimal = ',';
+    SeparadorMilesimo = '.';
+    objTextBox = objTextBox.replace(/\D/g, "");
+    var sep = 0;
+    var key = '';
+    var i = j = 0;
+    var len = len2 = 0;
+    var strCheck = '0123456789';
+    var aux = aux2 = '';
+    len = objTextBox.length;
+    for (i = 0; i < len; i++)
+        if ((objTextBox.charAt(i) != '0') && (objTextBox.charAt(i) != SeparadorDecimal)) break;
+    aux = '';
+    for (; i < len; i++)
+        if (strCheck.indexOf(objTextBox.charAt(i)) != -1) aux += objTextBox.charAt(i);
+    aux += key;
+    len = aux.length;
+    if (len == 0) objTextBox = '';
+    if (len == 1) objTextBox = '0' + SeparadorDecimal + '0' + aux;
+    if (len == 2) objTextBox = '0' + SeparadorDecimal + aux;
+    if (len > 2) {
+        aux2 = '';
+        for (j = 0, i = len - 3; i >= 0; i--) {
+            if (j == 3) {
+                aux2 += SeparadorMilesimo;
+                j = 0;
+            }
+            aux2 += aux.charAt(i);
+            j++;
+        }
+        objTextBox = '';
+        len2 = aux2.length;
+        for (i = len2 - 1; i >= 0; i--)
+            objTextBox += aux2.charAt(i);
+        objTextBox += SeparadorDecimal + aux.substr(len - 2, len);
+    }
+    return objTextBox;
+}
+
 var campo;
+
+campo = jQuery('input.moeda');
+campo.keypress(function() {
+    mascara(this, moeda);
+});
+campo.change(function() {
+    mascara(this, moeda);
+});
 
 jQuery('input.timer').attr('maxlength', 5);
 jQuery('input.timer').attr('data-minlength', 5);
@@ -544,6 +593,7 @@ jQuery('input:not(.no-blocked)').on('keydown', function(event) {
 });
 
 jQuery('form').attr('novalidate', 'novalidate');
+jQuery('form').find('input:not([maxlength])').attr('maxlength', 255);
 jQuery('form').submit(function(ev) {
     ev.preventDefault();
     var _self = jQuery(this);
@@ -664,25 +714,27 @@ jQuery('form').submit(function(ev) {
         }
     })
 
-    jQuery.each(_self.find('[type=password]'), function(indice, el) {
-        var el = jQuery(el),
-            cript, value;
-        if (Boolean(el.attr('data-cript'))) {
-            value = el.val();
-            el.attr('data-valback', value);
-            cript = el.attr('data-cript').split(",");
-            for (var i = 0; i < cript.length; i++) {
-                cript[i] = cript[i].trim();
-                if (cript[i].toUpperCase() == 'SHA1') {
-                    value = sha1(value);
+    if (aprovado) {
+        jQuery.each(_self.find('[type=password]'), function(indice, el) {
+            var el = jQuery(el),
+                cript, value;
+            if (Boolean(el.attr('data-cript'))) {
+                value = el.val();
+                el.attr('data-valback', value);
+                cript = el.attr('data-cript').split(",");
+                for (var i = 0; i < cript.length; i++) {
+                    cript[i] = cript[i].trim();
+                    if (cript[i].toUpperCase() == 'SHA1') {
+                        value = sha1(value);
+                    }
+                    if (cript[i].toUpperCase() == 'MD5') {
+                        value = md5(value);
+                    }
                 }
-                if (cript[i].toUpperCase() == 'MD5') {
-                    value = md5(value);
-                }
+                el.val(value).trigger('change');
             }
-            el.val(value).trigger('change');
-        }
-    });
+        });
+    }
 
     if (aprovado && _self.hasClass('ajax')) {
         jQuery('.loading').fadeIn('slow');
@@ -734,7 +786,7 @@ jQuery('input[type=file]').change(function(event) {
     var f = this.files[0],
         el = jQuery(this);
     jQuery(this).attr("data-filesize", (f.size || f.fileSize));
-    _self.('input[name=' + el.attr('name') + 'txt]').val(el.val());
+    el.parents('form').find('input[name=' + el.attr('name') + 'txt]').val(el.val());
 })
 
 function valida_cpf(cpf) {

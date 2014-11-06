@@ -40,7 +40,7 @@
 		<td><b>[requerido]</b><br>se "ajax"</td>
 		<td><code>data-elsend</code></td>
 		<td>&lt;seletor de elemento&gt;</td>
-		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar quando o formulário estiver sendo enviado via AJAX</td>
+		<td>Utilize o seletor do elemento para informar qual o elemento que irá mostrar quando o formulário estiver sendo enviado via AJAX. <br>Exemplo: <code>data-elsend="#id_div"</code></td>
 	</tr>
 	<tr>
 		<td><b>[requerido]</b></td>
@@ -52,13 +52,13 @@
 		<td><b>[requerido]</b><br>se "ajax"</td>
 		<td><code>data-elsuccess</code></td>
 		<td>&lt;seletor de elemento&gt;</td>
-		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX</td>
+		<td>Utilize o seletor do elemento para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX.<br>Exemplo: <code>data-elsuccess="#id_div"</code></td>
 	</tr>
 	<tr>
 		<td><b>[requerido]</b><br>se "ajax" e data-bootstrap for "false"</td>
 		<td><code>data-elvalidate</code></td>
 		<td>&lt;seletor de elemento&gt;</td>
-		<td>Utilize o seletor do elemento <code>"#id_div .class"</code> para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX</td>
+		<td>Utilize o seletor do elemento para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX.<br>Exemplo: <code>data-elvalidate="#id_div"</code></td>
 	</tr>
 </table>
 

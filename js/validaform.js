@@ -551,7 +551,7 @@ jQuery('form').submit(function(ev) {
         jQuery.extend({
             form_bootstrap: false
         });
-    }else{
+    } else {
         jQuery.extend({
             form_bootstrap: true
         });
@@ -723,12 +723,17 @@ jQuery('form').submit(function(ev) {
                 if (sendmail) {
                     sendmail.fadeOut('slow');
                 }
+                if (_self.attr('data-callback')) {
+                    var func = _self.attr('data-callback');
+                    func = new Function(func);
+                    func();
+                }
                 jQuery.each(_self.find('[type=password]'), function(indice, el) {
                     jQuery(el).val(jQuery(el).attr('data-valback')).trigger('change');
                 });
             },
             error: function(xhr, textStatus, errorThrown) {
-
+                //console.log(xhr, textStatus, errorThrown);
             }
         });
     } else if (aprovado) {

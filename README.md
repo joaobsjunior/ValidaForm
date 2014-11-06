@@ -37,7 +37,7 @@
 		<td>Se quiser enviar o formulário utilizando via AJAX</td>
 	</tr>
 	<tr>
-		<td><b>[requerido]</b><br>se "ajax"</td>
+		<td><b>[requerido]</b><br>se possui class "ajax"</td>
 		<td><code>data-elsend</code></td>
 		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento para informar qual o elemento que irá mostrar quando o formulário estiver sendo enviado via AJAX. <br>Exemplo: <code>data-elsend="#id_div"</code></td>
@@ -49,13 +49,19 @@
 		<td>Se o formulário for no formato bootstrap setar como "true" senão "false"</td>
 	</tr>
 	<tr>
-		<td><b>[requerido]</b><br>se "ajax"</td>
+		<td><b>[requerido]</b><br>se possui class "ajax"</td>
 		<td><code>data-elsuccess</code></td>
 		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX.<br>Exemplo: <code>data-elsuccess="#id_div"</code></td>
 	</tr>
 	<tr>
-		<td><b>[requerido]</b><br>se "ajax" e data-bootstrap for "false"</td>
+		<td>opcional</td>
+		<td><code>data-callback</code></td>
+		<td>&lt;função&gt;</td>
+		<td>Utilize se deseja criar um callback para ser executado quando finalizar o envio. <br><b>Funciona apenas via AJAX</b><br>Exemplo: <code>data-callback="name_function()"</code></td>
+	</tr>
+	<tr>
+		<td><b>[requerido]</b><br>se data-bootstrap for "false"</td>
 		<td><code>data-elvalidate</code></td>
 		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX.<br>Exemplo: <code>data-elvalidate="#id_div"</code></td>

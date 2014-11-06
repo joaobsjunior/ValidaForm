@@ -118,7 +118,7 @@
 	<tr>
 		<td><code>data-extencoes</code></td>
 		<td>&lt;array&gt;</td>
-		<td>Relação das extenções permitidas para o arquivo. Exemplp: <code>data-extencoes=".jpg, .png, .pdf"</code></td>
+		<td>Relação das extenções permitidas para o arquivo. <br>Exemplo: <code>data-extencoes=".jpg, .png, .pdf"</code></td>
 	</tr>
 	<tr>
 		<td><code>data-typesize</code> <strong>opcional</strong></td>

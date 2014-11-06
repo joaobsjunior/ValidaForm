@@ -547,13 +547,13 @@ jQuery('form').find('input:not([maxlength])').attr('maxlength', 255);
 jQuery('form').submit(function(ev) {
     ev.preventDefault();
     var _self = jQuery(this);
-    if (Boolean(_self.attr('data-bootstrap'))) {
+    if (_self.attr('data-bootstrap').toUpperCase() == "FALSE") {
         jQuery.extend({
-            form_bootstrap: true
+            form_bootstrap: false
         });
     }else{
         jQuery.extend({
-            form_bootstrap: false
+            form_bootstrap: true
         });
     }
 

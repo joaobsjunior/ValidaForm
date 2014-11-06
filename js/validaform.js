@@ -3,7 +3,8 @@
  * Autor: J'JUNIOR
  * Site do Autor: jjunior.net.br
  * Copyright 2014 validaform
- * Publicação: 01/08/2014
+ * Publicação: 06/11/2014
+ * Github: https://github.com/joaojuniormail/validaform
  * Licensed under the MIT license
  */
 

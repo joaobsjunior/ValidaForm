@@ -313,9 +313,7 @@ function sha1(r) {
 }
 
 jQuery.extend({
-    form_bootstrap: function() {
-        return true;
-    }
+    form_bootstrap: true
 });
 
 jQuery.fn.serializeObject = function() {
@@ -549,14 +547,19 @@ jQuery('form').find('input:not([maxlength])').attr('maxlength', 255);
 jQuery('form').submit(function(ev) {
     ev.preventDefault();
     var _self = jQuery(this);
-    jQuery.extend({
-        form_bootstrap: function() {
-            return Boolean(_self.attr('data-bootstrap'));
-        }
-    });
+    if (Boolean(_self.attr('data-bootstrap'))) {
+        jQuery.extend({
+            form_bootstrap: true
+        });
+    }else{
+        jQuery.extend({
+            form_bootstrap: false
+        });
+    }
+
     var aprovado = true;
     jQuery(_self.attr('data-elsuccess')).hide();
-    if (!jQuery.form_bootstrap()) {
+    if (!jQuery.form_bootstrap) {
         jQuery(_self.attr('data-elvalidate')).html('');
     }
     _self.find('input, textarea, select').each(function() {
@@ -565,7 +568,7 @@ jQuery('form').submit(function(ev) {
             atual.val("");
         }
         if (atual.is('[required]')) {
-            if (jQuery.form_bootstrap()) {
+            if (jQuery.form_bootstrap) {
                 atual.parent().addClass('has-feedback');
                 atual.parent().removeClass('has-error');
                 if (atual.parent().find('.help-block').length) {
@@ -830,7 +833,7 @@ function valida_cnpj(cnpj) {
 function anima_validacao(campo_atual, msg) {
     var campo_duracao = 50,
         msgValidate, campo_prev;
-    if (jQuery.form_bootstrap()) {
+    if (jQuery.form_bootstrap) {
         msgValidate = campo_atual.parent().find('.help-block');
         campo_atual.parent().addClass('has-error');
     } else {
@@ -843,7 +846,7 @@ function anima_validacao(campo_atual, msg) {
     msgValidate.fadeIn("fast");
     campo_atual.trigger('focus');
     if (campo_atual.is('select')) {
-        if (jQuery.form_bootstrap() && (typeof jQuery.fn.selectpicker == 'function')) {
+        if (jQuery.form_bootstrap && (typeof jQuery.fn.selectpicker == 'function')) {
             campo_atual = campo_atual.parent().children('.bootstrap-select');
             campo_atual.click(function() {
                 setTimeout(function() {

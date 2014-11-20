@@ -720,9 +720,14 @@ jQuery('form').submit(function(ev) {
     if (aprovado && _self.hasClass('ajax')) {
         jQuery('.loading').fadeIn('slow');
         var url = _self.attr('action'),
-            params = new FormData(_self[0]),
+            params,
             sendmail = jQuery(_self.attr('data-elsend')),
             msgsuccess = jQuery(_self.attr('data-elsuccess'));
+        if (_self.attr('method').toUpperCase() == "POST") {
+            params = new FormData(_self[0]);
+        } else {
+            params = _self.serializeObject();
+        }
         jQuery.ajax({
             type: _self.attr('method'),
             url: url,
@@ -744,15 +749,16 @@ jQuery('form').submit(function(ev) {
                         msgsuccess.fadeOut('slow');
                     }, 10000);
                 }
+                if (_self.attr('data-callback')) {
+                    var func = _self.attr('data-callback');
+                    func = func.replace('()', '(' + JSON.stringify(data) + ')');
+                    func = new Function(func);
+                    func();
+                }
             },
             complete: function() {
                 if (sendmail) {
                     sendmail.fadeOut('slow');
-                }
-                if (_self.attr('data-callback')) {
-                    var func = _self.attr('data-callback');
-                    func = new Function(func);
-                    func();
                 }
                 jQuery.each(_self.find('[type=password]'), function(indice, el) {
                     jQuery(el).val(jQuery(el).attr('data-valback')).trigger('change');

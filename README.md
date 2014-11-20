@@ -64,7 +64,7 @@
 		<td><b>[requerido]</b><br>se data-bootstrap for "false"</td>
 		<td><code>data-elvalidate</code></td>
 		<td>&lt;seletor de elemento&gt;</td>
-		<td>Utilize o seletor do elemento para informar qual o elemento que irá mostrar o conteúdo que irá ser retornado da requisição AJAX.<br>Exemplo: <code>data-elvalidate="#id_div"</code></td>
+		<td>Utilize o seletor do elemento para informar qual o elemento que irá mostrar as mensagens de validação <b>Para form-bootstrap="false"</b><br>Exemplo: <code>data-elvalidate="#id_div"</code></td>
 	</tr>
 </table>
 

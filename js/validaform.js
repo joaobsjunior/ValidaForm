@@ -313,7 +313,9 @@ function sha1(r) {
 }
 
 jQuery.extend({
-    form_bootstrap: true
+    form_bootstrap: true,
+    form_scroll: true,
+    form_scrollbefore: 100
 });
 
 jQuery.fn.serializeObject = function() {
@@ -547,13 +549,37 @@ jQuery('form').find('input:not([maxlength])').attr('maxlength', 255);
 jQuery('form').submit(function(ev) {
     ev.preventDefault();
     var _self = jQuery(this);
-    if (_self.attr('data-bootstrap').toUpperCase() == "FALSE") {
-        jQuery.extend({
-            form_bootstrap: false
-        });
+    if (_self.attr('data-bootstrap')) {
+        if (_self.attr('data-bootstrap').toUpperCase() == "FALSE") {
+            jQuery.extend({
+                form_bootstrap: false
+            });
+        } else {
+            jQuery.extend({
+                form_bootstrap: true
+            });
+        }
     } else {
         jQuery.extend({
             form_bootstrap: true
+        });
+    }
+    if (_self.attr('data-scroll')) {
+        if (_self.attr('data-scroll').toUpperCase() == "FALSE") {
+            jQuery.extend({
+                form_scroll: false,
+                form_scrollbefore: 100
+            });
+        } else {
+            jQuery.extend({
+                form_scroll: true,
+                form_scrollbefore: 100
+            });
+        }
+    } else {
+        jQuery.extend({
+            form_scroll: true,
+            form_scrollbefore: 100
         });
     }
 
@@ -894,9 +920,12 @@ function anima_validacao(campo_atual, msg) {
             }, 600);
         });
     }
-    jQuery('html,body').animate({
-        scrollTop: (campo_atual.offset().top - 100) + 'px'
-    }, 'fast');
+
+    if (jQuery.form_scroll) {
+        jQuery('html,body').animate({
+            scrollTop: (campo_atual.offset().top - jQuery.form_scrollbefore) + 'px'
+        }, 'fast');
+    }
     borderTopW = campo_atual.css('border-top-width');
     borderRightW = campo_atual.css('border-right-width');
     borderBottomW = campo_atual.css('border-bottom-width');

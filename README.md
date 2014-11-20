@@ -66,6 +66,12 @@
 		<td>&lt;seletor de elemento&gt;</td>
 		<td>Utilize o seletor do elemento para informar qual o elemento que irá mostrar as mensagens de validação Para <b>data-bootstrap="false"</b><br>Exemplo: <code>data-elvalidate="#id_div"</code></td>
 	</tr>
+	<tr>
+		<td><b>[requerido]</b></td>
+		<td><code>data-scroll</code></td>
+		<td>&lt;boolean&gt;</td>
+		<td>Se o formulário tera um scroll automático para o campo validado setar como "true" senão "false"</td>
+	</tr>
 </table>
 
 <h5>Na tag <code>&lt;input | select | textarea&gt;</code>, você deve informar os seguintes atributos:</h5>

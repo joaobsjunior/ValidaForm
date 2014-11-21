@@ -604,7 +604,7 @@ jQuery('form').submit(function(ev) {
                     atual.parent().append('<small class="help-block"></small>');
                 }
             }
-            if ((atual.val() == atual.attr('placeholder') || atual.val().trim() == "" && !atual.is('select')) || (atual.is('select') && atual.find('option:selected').text() == atual.find('option').eq(0).text())) {
+            if ((atual.val() == atual.attr('placeholder') || jQuery.trim(atual.val()) == "" && !atual.is('select')) || (atual.is('select') && atual.find('option:selected').text() == atual.find('option').eq(0).text())) {
                 anima_validacao(atual, atual.attr('data-msgrequired'));
                 aprovado = false;
                 return false;
@@ -645,7 +645,7 @@ jQuery('form').submit(function(ev) {
                     var extensoes = atual.attr('data-extencoes');
                     extensoes = extensoes.split(",");
                     for (var i = 0; i < extensoes.length; i++) {
-                        extensoes[i] = extensoes[i].trim();
+                        extensoes[i] = jQuery.trim(extensoes[i]);
                     }
                     var extensoesValidas = extensoes;
                     var caminho = atual.val();
@@ -706,7 +706,7 @@ jQuery('form').submit(function(ev) {
                 el.attr('data-valback', value);
                 cript = el.attr('data-cript').split(",");
                 for (var i = 0; i < cript.length; i++) {
-                    cript[i] = cript[i].trim();
+                    cript[i] = jQuery.trim(cript[i]);
                     if (cript[i].toUpperCase() == 'SHA1') {
                         value = sha1(value);
                     }
@@ -725,18 +725,16 @@ jQuery('form').submit(function(ev) {
             params,
             sendmail = jQuery(_self.attr('data-elsend')),
             msgsuccess = jQuery(_self.attr('data-elsuccess'));
-        if (_self.attr('method').toUpperCase() == "POST") {
+        if (_self.attr('method').toUpperCase() == "POST" && (navigator.appName.toLowerCase().indexOf('internet explorer') != -1 && navigator.appVersion.toLowerCase().indexOf('msie 8') != -1 && navigator.appVersion.toLowerCase().indexOf('msie 7') != -1 && navigator.appVersion.toLowerCase().indexOf('msie 6') != -1 && navigator.appVersion.toLowerCase().indexOf('msie 5') != -1 )) {
             params = new FormData(_self[0]);
         } else {
             params = _self.serializeObject();
         }
-        console.log(params);
         jQuery.ajax({
             type: _self.attr('method'),
             url: url,
             async: true,
             cache: false,
-            contentType: false,
             processData: false,
             data: params,
             beforeSend: function() {
@@ -768,7 +766,7 @@ jQuery('form').submit(function(ev) {
                 });
             },
             error: function(xhr, textStatus, errorThrown) {
-                //console.log(xhr, textStatus, errorThrown);
+                console.log(xhr, textStatus, errorThrown);
             }
         });
     } else if (aprovado) {

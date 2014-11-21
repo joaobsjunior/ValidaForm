@@ -450,6 +450,7 @@ function moeda(v) {
 
 var campo;
 
+jQuery('input.moeda').attr('data-minlength', 4);
 campo = jQuery('input.moeda');
 campo.keypress(function() {
     mascara(this, moeda);
@@ -651,8 +652,8 @@ jQuery('form').submit(function(ev) {
                     var extensao = caminho.substr(caminho.lastIndexOf("."), caminho.length - caminho.lastIndexOf("."));
                     var ocorrencia = false;
                     var tamanhoMaximo = 0;
-                    if (Boolean(jQuery("input[name='file']").attr('data-maxsize')) && Boolean(jQuery("input[name='file']").attr('data-typesize'))) {
-                        if (jQuery("input[name='file']").attr('data-typesize').toUpperCase() == 'MB') {
+                    if (atual.attr('data-maxsize') && atual.attr('data-typesize')) {
+                        if (atual.attr('data-typesize').toUpperCase() == 'MB') {
                             tamanhoMaximo = parseInt(atual.attr('data-maxsize')) * 1024 * 1024;
                         } else {
                             /*TAMANHO EM KB POR DEFAULT*/
@@ -660,6 +661,7 @@ jQuery('form').submit(function(ev) {
                         }
                     }
                     var tamanhoArquivo = parseInt(atual.attr("data-filesize"));
+                    console.log(tamanhoArquivo, tamanhoMaximo);
                     for (var i = 0; i < extensoesValidas.length; i++) {
                         if (extensoesValidas[i].toUpperCase() == extensao.toUpperCase()) {
                             ocorrencia = true;
@@ -728,6 +730,7 @@ jQuery('form').submit(function(ev) {
         } else {
             params = _self.serializeObject();
         }
+        console.log(params);
         jQuery.ajax({
             type: _self.attr('method'),
             url: url,

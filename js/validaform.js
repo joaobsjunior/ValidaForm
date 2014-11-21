@@ -735,7 +735,6 @@ jQuery('form').submit(function(ev) {
             url: url,
             async: true,
             cache: false,
-            processData: false,
             data: params,
             beforeSend: function() {
                 if (sendmail) {

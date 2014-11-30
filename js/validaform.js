@@ -725,7 +725,7 @@ jQuery('form').submit(function(ev) {
             params,
             sendmail = jQuery(_self.attr('data-elsend')),
             msgsuccess = jQuery(_self.attr('data-elsuccess'));
-        if (_self.attr('method').toUpperCase() == "POST" && (navigator.appName.toLowerCase().indexOf('internet explorer') != -1 && navigator.appVersion.toLowerCase().indexOf('msie 8') != -1 && navigator.appVersion.toLowerCase().indexOf('msie 7') != -1 && navigator.appVersion.toLowerCase().indexOf('msie 6') != -1 && navigator.appVersion.toLowerCase().indexOf('msie 5') != -1 )) {
+        if (_self.attr('method').toUpperCase() == "POST" && typeof(FormData) == 'function') {
             params = new FormData(_self[0]);
         } else {
             params = _self.serializeObject();

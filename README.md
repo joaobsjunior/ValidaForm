@@ -89,7 +89,7 @@
 	</tr>
 	<tr>
 		<td><code>class</code></td>
-		<td>&lt;timer (hora) | phone (telefone) | cnpj | cpf | data | cep | so-numero | so-texto | moeda&gt;</td>
+		<td>&lt;timer (hora) | phone (telefone) | cnpj | cpf | data | cep | so-numero | so-texto | moeda | no-blocked&gt;</td>
 		<td>Classes CSS que serão tratadas pelo script, gerando máscaras, retringindo caracteres e validado os dados</td>
 	</tr>
 	<tr>

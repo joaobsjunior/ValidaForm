@@ -733,8 +733,9 @@ jQuery('form').submit(function(ev) {
         jQuery.ajax({
             type: _self.attr('method'),
             url: url,
-            async: true,
             cache: false,
+            processData: false,
+            contentType: false,
             data: params,
             beforeSend: function() {
                 if (sendmail) {

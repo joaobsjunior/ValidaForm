@@ -586,7 +586,7 @@ jQuery('form').submit(function(ev) {
                         return false;
                     }
                 }
-                if (atual.attr('type') == 'email' && !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(atual.val()))) {
+                if (atual.attr('type') == 'email' && !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(atual.val())) {
                     anima_validacao(atual, atual.attr('data-msgvalidate'));
                     aprovado = false;
                     return false;

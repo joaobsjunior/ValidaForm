@@ -4,7 +4,7 @@
  * Site do Autor: jjunior.net.br
  * Copyright 2014 validaform
  * Publicação: 06/11/2014
- * Atualização: 02/04/2015
+ * Atualização: 28/06/2015
  * Github: https://github.com/joaojuniormail/validaform
  * Licensed under the MIT license
  */
@@ -68,11 +68,11 @@ function md5(str) {
 
     var xl;
 
-    var rotateLeft = function(lValue, iShiftBits) {
+    var rotateLeft = function (lValue, iShiftBits) {
         return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
     };
 
-    var addUnsigned = function(lX, lY) {
+    var addUnsigned = function (lX, lY) {
         var lX4, lY4, lX8, lY8, lResult;
         lX8 = (lX & 0x80000000);
         lY8 = (lY & 0x80000000);
@@ -93,40 +93,40 @@ function md5(str) {
         }
     };
 
-    var _F = function(x, y, z) {
+    var _F = function (x, y, z) {
         return (x & y) | ((~x) & z);
     };
-    var _G = function(x, y, z) {
+    var _G = function (x, y, z) {
         return (x & z) | (y & (~z));
     };
-    var _H = function(x, y, z) {
+    var _H = function (x, y, z) {
         return (x ^ y ^ z);
     };
-    var _I = function(x, y, z) {
+    var _I = function (x, y, z) {
         return (y ^ (x | (~z)));
     };
 
-    var _FF = function(a, b, c, d, x, s, ac) {
+    var _FF = function (a, b, c, d, x, s, ac) {
         a = addUnsigned(a, addUnsigned(addUnsigned(_F(b, c, d), x), ac));
         return addUnsigned(rotateLeft(a, s), b);
     };
 
-    var _GG = function(a, b, c, d, x, s, ac) {
+    var _GG = function (a, b, c, d, x, s, ac) {
         a = addUnsigned(a, addUnsigned(addUnsigned(_G(b, c, d), x), ac));
         return addUnsigned(rotateLeft(a, s), b);
     };
 
-    var _HH = function(a, b, c, d, x, s, ac) {
+    var _HH = function (a, b, c, d, x, s, ac) {
         a = addUnsigned(a, addUnsigned(addUnsigned(_H(b, c, d), x), ac));
         return addUnsigned(rotateLeft(a, s), b);
     };
 
-    var _II = function(a, b, c, d, x, s, ac) {
+    var _II = function (a, b, c, d, x, s, ac) {
         a = addUnsigned(a, addUnsigned(addUnsigned(_I(b, c, d), x), ac));
         return addUnsigned(rotateLeft(a, s), b);
     };
 
-    var convertToWordArray = function(str) {
+    var convertToWordArray = function (str) {
         var lWordCount;
         var lMessageLength = str.length;
         var lNumberOfWords_temp1 = lMessageLength + 8;
@@ -149,7 +149,7 @@ function md5(str) {
         return lWordArray;
     };
 
-    var wordToHex = function(lValue) {
+    var wordToHex = function (lValue) {
         var wordToHexValue = '',
             wordToHexValue_temp = '',
             lByte, lCount;
@@ -268,11 +268,11 @@ function md5(str) {
 }
 
 function sha1(r) {
-    var e, o, a, t, c, h, n, f, s, u = function(r, e) {
+    var e, o, a, t, c, h, n, f, s, u = function (r, e) {
             var o = r << e | r >>> 32 - e;
             return o
         },
-        C = function(r) {
+        C = function (r) {
             var e, o, a = "";
             for (e = 7; e >= 0; e--) o = r >>> 4 * e & 15, a += o.toString(16);
             return a
@@ -288,17 +288,17 @@ function sha1(r) {
         k = [];
     for (o = 0; b - 3 > o; o += 4) a = r.charCodeAt(o) << 24 | r.charCodeAt(o + 1) << 16 | r.charCodeAt(o + 2) << 8 | r.charCodeAt(o + 3), k.push(a);
     switch (b % 4) {
-        case 0:
-            o = 2147483648;
-            break;
-        case 1:
-            o = r.charCodeAt(b - 1) << 24 | 8388608;
-            break;
-        case 2:
-            o = r.charCodeAt(b - 2) << 24 | r.charCodeAt(b - 1) << 16 | 32768;
-            break;
-        case 3:
-            o = r.charCodeAt(b - 3) << 24 | r.charCodeAt(b - 2) << 16 | r.charCodeAt(b - 1) << 8 | 128
+    case 0:
+        o = 2147483648;
+        break;
+    case 1:
+        o = r.charCodeAt(b - 1) << 24 | 8388608;
+        break;
+    case 2:
+        o = r.charCodeAt(b - 2) << 24 | r.charCodeAt(b - 1) << 16 | 32768;
+        break;
+    case 3:
+        o = r.charCodeAt(b - 3) << 24 | r.charCodeAt(b - 2) << 16 | r.charCodeAt(b - 1) << 8 | 128
     }
     for (k.push(o); k.length % 16 != 14;) k.push(0);
     for (k.push(b >>> 29), k.push(b << 3 & 4294967295), e = 0; e < k.length; e += 16) {
@@ -319,10 +319,10 @@ jQuery.extend({
     form_scrollbefore: 100
 });
 
-jQuery.fn.serializeObject = function() {
+jQuery.fn.serializeObject = function () {
     "use strict";
     var a = {},
-        b = function(b, c) {
+        b = function (b, c) {
             var d = a[c.name];
             "undefined" != typeof d && d !== null ? $.isArray(d) ? d.push(c.value) : a[c.name] = [d, c.value] : a[c.name] = c.value
         };
@@ -422,102 +422,102 @@ var campo;
 
 jQuery('input.moeda').attr('data-minlength', 4);
 campo = jQuery('input.moeda');
-campo.keypress(function() {
+campo.keypress(function () {
     mascara(this, moeda);
 });
-campo.change(function() {
+campo.change(function () {
     mascara(this, moeda);
 });
 
 jQuery('input.timer').attr('maxlength', 5);
 jQuery('input.timer').attr('data-minlength', 5);
 campo = jQuery('input.timer');
-campo.keypress(function() {
+campo.keypress(function () {
     mascara(this, timer);
 });
-campo.change(function() {
+campo.change(function () {
     mascara(this, timer);
 });
 
 jQuery('input.phone').attr('maxlength', 15);
 jQuery('input.phone').attr('data-minlength', 14);
 campo = jQuery('input.phone');
-campo.keypress(function() {
+campo.keypress(function () {
     mascara(this, telefone);
 });
-campo.change(function() {
+campo.change(function () {
     mascara(this, telefone);
 });
 
 jQuery('input.cnpj').attr('maxlength', 18);
 jQuery('input.cnpj').attr('data-minlength', 18);
 campo = jQuery('input.cnpj');
-campo.keypress(function() {
+campo.keypress(function () {
     mascara(this, cnpj);
 });
-campo.change(function() {
+campo.change(function () {
     mascara(this, cnpj);
 });
 
 jQuery('input.cpf').attr('maxlength', 14);
 jQuery('input.cpf').attr('data-minlength', 14);
 campo = jQuery('input.cpf');
-campo.keypress(function() {
+campo.keypress(function () {
     mascara(this, cpf);
 });
-campo.change(function() {
+campo.change(function () {
     mascara(this, cpf);
 });
 
 jQuery('input.data').attr('maxlength', 10);
 jQuery('input.data').attr('data-minlength', 10);
 campo = jQuery('input.data');
-campo.keypress(function() {
+campo.keypress(function () {
     mascara(this, data);
 });
-campo.change(function() {
+campo.change(function () {
     mascara(this, data);
 });
 
 jQuery('input.cep').attr('maxlength', 10);
 jQuery('input.cep').attr('data-minlength', 10);
 campo = jQuery('input.cep');
-campo.keypress(function() {
+campo.keypress(function () {
     mascara(this, cep);
 });
-campo.change(function() {
+campo.change(function () {
     mascara(this, cep);
 });
 
 campo = jQuery('input.so-numero');
-campo.keypress(function() {
+campo.keypress(function () {
     mascara(this, so_numeros);
 });
-campo.change(function() {
+campo.change(function () {
     mascara(this, so_numeros);
 });
 
 campo = jQuery('input.so-texto');
-campo.keypress(function() {
+campo.keypress(function () {
     mascara(this, so_texto);
 });
-campo.change(function() {
+campo.change(function () {
     mascara(this, so_texto);
 });
 
-jQuery('input:not(.no-blocked)').on('keydown', function(event) {
+jQuery('input:not(.no-blocked)').on('keydown', function (event) {
     var tecla = String.fromCharCode(event.keyCode).toLowerCase();
     if ((event.ctrlKey || event.metaKey) && (tecla == "c" || tecla == "v")) {
         window.event ? event.returnValue = false : event.preventDefault();
         return false
     }
-}).on('contextmenu', function() {
+}).on('contextmenu', function () {
     return false;
 });
 
 jQuery('form').attr('novalidate', 'novalidate');
 jQuery('form').find('input:not([maxlength])').attr('maxlength', 255);
-jQuery('form').submit(function(ev) {
+jQuery('form').submit(function (ev) {
     ev.preventDefault();
     var _self = jQuery(this);
     if (_self.attr('data-bootstrap')) {
@@ -559,19 +559,29 @@ jQuery('form').submit(function(ev) {
     if (!jQuery.form_bootstrap) {
         jQuery(_self.attr('data-elvalidate')).html('');
     }
-    _self.find('input, textarea, select').each(function() {
+    _self.find('input, textarea, select').each(function () {
         var atual = jQuery(this);
         if (atual.val() == atual.attr('placeholder')) {
             atual.val("");
         }
         if (atual.is('[required]')) {
             if (jQuery.form_bootstrap) {
-                atual.parent().addClass('has-feedback');
-                atual.parent().removeClass('has-error');
-                if (atual.parent().find('.help-block').length) {
-                    atual.parent().find('.help-block').html('');
+                if (atual.parent().hasClass('input-group')) {
+                    atual.parent().parent().addClass('has-feedback');
+                    atual.parent().parent().removeClass('has-error');
+                    if (atual.parent().parent().find('.help-block').length) {
+                        atual.parent().parent().find('.help-block').html('');
+                    } else {
+                        atual.parent().parent().append('<small class="help-block"></small>');
+                    }
                 } else {
-                    atual.parent().append('<small class="help-block"></small>');
+                    atual.parent().addClass('has-feedback');
+                    atual.parent().removeClass('has-error');
+                    if (atual.parent().find('.help-block').length) {
+                        atual.parent().find('.help-block').html('');
+                    } else {
+                        atual.parent().append('<small class="help-block"></small>');
+                    }
                 }
             }
             if ((atual.val() == atual.attr('placeholder') || jQuery.trim(atual.val()) == "" && !atual.is('select')) || (atual.is('select') && atual.find('option:selected').text() == atual.find('option').eq(0).text())) {
@@ -668,7 +678,7 @@ jQuery('form').submit(function(ev) {
     })
 
     if (aprovado) {
-        jQuery.each(_self.find('[type=password]'), function(indice, el) {
+        jQuery.each(_self.find('[type=password]'), function (indice, el) {
             var el = jQuery(el),
                 cript, value;
             if (Boolean(el.attr('data-cript'))) {
@@ -695,7 +705,7 @@ jQuery('form').submit(function(ev) {
             params,
             sendmail = jQuery(_self.attr('data-elsend')),
             msgsuccess = jQuery(_self.attr('data-elsuccess'));
-        if (_self.attr('method').toUpperCase() == "POST" && typeof(FormData) == 'function') {
+        if (_self.attr('method').toUpperCase() == "POST" && typeof (FormData) == 'function') {
             params = new FormData(_self[0]);
         } else {
             params = _self.serializeObject();
@@ -707,16 +717,16 @@ jQuery('form').submit(function(ev) {
             processData: false,
             contentType: false,
             data: params,
-            beforeSend: function() {
+            beforeSend: function () {
                 if (sendmail) {
                     sendmail.fadeIn('slow');
                 }
             },
-            success: function(data) {
+            success: function (data) {
                 if (msgsuccess) {
                     msgsuccess.html(data);
                     msgsuccess.fadeIn('slow');
-                    setTimeout(function() {
+                    setTimeout(function () {
                         msgsuccess.fadeOut('slow');
                     }, 10000);
                 }
@@ -727,15 +737,15 @@ jQuery('form').submit(function(ev) {
                     func();
                 }
             },
-            complete: function() {
+            complete: function () {
                 if (sendmail) {
                     sendmail.fadeOut('slow');
                 }
-                jQuery.each(_self.find('[type=password]'), function(indice, el) {
+                jQuery.each(_self.find('[type=password]'), function (indice, el) {
                     jQuery(el).val(jQuery(el).attr('data-valback')).trigger('change');
                 });
             },
-            error: function(xhr, textStatus, errorThrown) {
+            error: function (xhr, textStatus, errorThrown) {
                 console.log(xhr, textStatus, errorThrown);
             }
         });
@@ -745,7 +755,7 @@ jQuery('form').submit(function(ev) {
 
 });
 
-jQuery('input[type=file]').change(function(event) {
+jQuery('input[type=file]').change(function (event) {
     var f = this.files[0],
         el = jQuery(this);
     jQuery(this).attr("data-filesize", (f.size || f.fileSize));
@@ -842,8 +852,13 @@ function anima_validacao(campo_atual, msg) {
     var campo_duracao = 50,
         msgValidate, campo_prev;
     if (jQuery.form_bootstrap) {
-        msgValidate = campo_atual.parent().find('.help-block');
-        campo_atual.parent().addClass('has-error');
+        if(campo_atual.parent().hasClass('input-group')){
+            msgValidate = campo_atual.parent().parent().find('.help-block');
+            campo_atual.parent().parent().addClass('has-error');
+        }else{
+            msgValidate = campo_atual.parent().find('.help-block');
+            campo_atual.parent().addClass('has-error');
+        }
     } else {
         msgValidate = campo_atual.parents('form').attr('data-elvalidate');
         msgValidate = jQuery(msgValidate);
@@ -856,16 +871,16 @@ function anima_validacao(campo_atual, msg) {
     if (campo_atual.is('select')) {
         if (jQuery.form_bootstrap && (typeof jQuery.fn.selectpicker == 'function')) {
             campo_atual = campo_atual.parent().children('.bootstrap-select');
-            campo_atual.click(function() {
-                setTimeout(function() {
+            campo_atual.click(function () {
+                setTimeout(function () {
                     campo_atual.removeAttr('style');
                     msgValidate.fadeOut("fast");
                     campo_atual.parent().removeClass('has-error');
                 }, 600);
             });
         } else {
-            campo_atual.change(function() {
-                setTimeout(function() {
+            campo_atual.change(function () {
+                setTimeout(function () {
                     campo_atual.removeAttr('style');
                     msgValidate.fadeOut("fast");
                     campo_atual.parent().removeClass('has-error');
@@ -878,8 +893,8 @@ function anima_validacao(campo_atual, msg) {
         nomeCampo = campo_atual.attr("name");
         campo_atual = jQuery("input[name='" + nomeCampo + "txt']");
 
-        campo_prev.keypress(function() {
-            setTimeout(function() {
+        campo_prev.keypress(function () {
+            setTimeout(function () {
                 campo_atual.removeAttr('style');
                 msgValidate.fadeOut("fast");
                 campo_atual.parent().removeClass('has-error');
@@ -889,8 +904,8 @@ function anima_validacao(campo_atual, msg) {
     if (campo_atual.attr("type") == "radio") {
         campo_prev = campo_atual;
         campo_atual = campo_prev.parent();
-        campo_prev.keypress(function() {
-            setTimeout(function() {
+        campo_prev.keypress(function () {
+            setTimeout(function () {
                 campo_atual.removeAttr('style');
                 msgValidate.fadeOut("fast");
                 campo_atual.parent().removeClass('has-error');
@@ -946,8 +961,8 @@ function anima_validacao(campo_atual, msg) {
 
     }
 
-    campo_atual.keypress(function() {
-        setTimeout(function() {
+    campo_atual.keypress(function () {
+        setTimeout(function () {
             campo_atual.removeAttr('style');
             msgValidate.fadeOut("fast");
             campo_atual.parent().removeClass('has-error');

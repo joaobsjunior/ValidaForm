@@ -408,23 +408,27 @@ function so_texto(v) {
     return v;
 }
 
-function moeda(n) {
-     if(typeof(n) == "number"){
-            n = n.toString().replace(/\./gi, ",");
+function moeda(valor) {
+        var valor = valor.replace(/\D/gi, ""),
+            valor = (valor) ? parseInt(valor).toString() : "0",
+            tamanhoValor = valor.toString().length,
+            valorDecimal;
+        if (tamanhoValor > 2) {
+            valorDecimal = valor.substr(valor.length - 2)
+        } else if (valor > 9) {
+            valorDecimal = valor
+        } else if (valor) {
+            valorDecimal = "0" + valor
+        } else {
+            valorDecimal = "00"
+        }
+        var valor = (tamanhoValor > 2) ? valor.substring(0, tamanhoValor - 2) : "0",
+            sinal = valor < 0 ? "-" : "",
+            valorInteiro = parseInt(valor = Math.abs(+valor || 0).toFixed(2)) + "",
+            divisaoMilhar = (divisaoMilhar = valorInteiro.length) > 3 ? divisaoMilhar % 3 : 0,
+            valor = "R$ "+sinal + (divisaoMilhar ? valorInteiro.substr(0, divisaoMilhar) + "." : "") + valorInteiro.substr(divisaoMilhar).replace(/(\d{3})(?=\d)/g, "$1" + ".") + ("," + valorDecimal);
+        return valor;
     }
-    var c = 2,
-        d = ",",
-        t = ".",
-        dIndex = n.indexOf(d),
-        dec = (dIndex != -1) ? n.substr(n.indexOf(d) + 1) : "00",
-        n = (dIndex != -1) ? n.substring(0, dIndex) : n,
-        n = n.replace(/\R\$|\./gi, ""),
-        s = n < 0 ? "-" : "",
-        i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
-        j = (j = i.length) > 3 ? j % 3 : 0,
-        valor = s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + dec : "");
-    return valor;
-}
 
 var campo;
 
